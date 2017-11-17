@@ -1,4 +1,4 @@
-package androidprojectcom.cutin.androidproject;
+package cutingapp.cuting.org.androidproject;
 
 import org.junit.Test;
 

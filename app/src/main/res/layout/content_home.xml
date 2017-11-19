@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="cutingapp.cuting.org.androidproject.HomeActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp"
+    tools:showIn="@layout/app_bar_home">
+    <ProgressBar
+        android:id="@+id/progress_scheduleView"
+        android:layout_width="match_parent"
+        android:layout_height="3dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/progress_scheduleView"
+        >
+
+        <LinearLayout
+            android:id="@+id/scroll_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/day_1"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:background="@color/colorPrimary"
+                android:drawableEnd="@android:drawable/arrow_down_float"
+                android:gravity="center_vertical"
+                android:text="Monday - 20/11/2017"
+                android:textColor="@android:color/white"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/day_2"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:background="@color/colorPrimary"
+                android:drawableEnd="@android:drawable/arrow_up_float"
+                android:gravity="center_vertical"
+                android:text="Tuesday - 21/11/2017"
+                android:textColor="@android:color/white"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/nothing_to_show"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/light_grey"
+                android:gravity="center"
+                android:text="@string/nothing_scheduled"
+                android:textColor="@color/grey"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/day_3"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:background="@color/colorPrimary"
+                android:drawableEnd="@android:drawable/arrow_up_float"
+                android:gravity="center_vertical"
+                android:text="Tuesday - 22/11/2017"
+                android:textColor="@android:color/white"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/job1_name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:text="@string/nothing_scheduled"
+                android:textColor="@color/grey"
+                android:drawableEnd="@drawable/ic_action_name"
+                android:textSize="17sp" />
+            <TextView
+                android:id="@+id/day_4"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:background="@color/colorPrimary"
+                android:drawableEnd="@android:drawable/arrow_up_float"
+                android:gravity="center_vertical"
+                android:text="Tuesday - 23/11/2017"
+                android:textColor="@android:color/white"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/nothing_to_show_day4"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/light_grey"
+                android:gravity="center"
+                android:text="@string/nothing_scheduled"
+                android:textColor="@color/grey"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/day_5"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:background="@color/colorPrimary"
+                android:drawableEnd="@android:drawable/arrow_up_float"
+                android:gravity="center_vertical"
+                android:text="Tuesday - 24/11/2017"
+                android:textColor="@android:color/white"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/nothing_to_show_day5"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/light_grey"
+                android:gravity="center"
+                android:text="@string/nothing_scheduled"
+                android:textColor="@color/grey"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

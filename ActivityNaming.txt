@@ -1,0 +1,12 @@
+Naming:
+Main -> MainActivity
+Welcome -> WelcomeActivity
+Register -> RegisterActivity
+AuditScreen -> AuditActivity
+Login -> LoginActivity
+Home -> HomeActivity
+Available Jobs -> AvailableJobsActivity
+Completed Jobs -> CompletedJobsActivity
+Edit Profile  -> EditProfileActivity
+Full Schedule -> FullScheduleActivity
+Location of CutingEdge -> CutingEdgeLocationActivity

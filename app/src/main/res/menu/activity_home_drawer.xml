@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+        <item
+            android:id="@+id/nav_edit_prof"
+            android:icon="@android:drawable/ic_menu_edit"
+            android:title="Edit Profile" />
+
+    </group>
+
+    <item android:title="Jobs">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@android:drawable/ic_menu_today"
+                android:title="Full Schedule" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@android:drawable/ic_search_category_default"
+                android:title="Browse Jobs" />
+            <item
+                android:id="@+id/nav_comp_jobs"
+                android:icon="@drawable/comp_job"
+                android:title="Completed Jobs" />
+        </menu>
+    </item>
+    <item android:title="Contact CUTing Edge">
+        <menu>
+            <item
+                android:id="@+id/nav_cuting_email"
+                android:icon="@drawable/email"
+                android:title="Email" />
+            <item
+                android:id="@+id/nav_cuting_website"
+                android:icon="@drawable/webpage"
+                android:title="Website" />
+            <item
+                android:id="@+id/nav_cuting_location"
+                android:icon="@drawable/pin_place"
+                android:title="Location" />
+        </menu>
+    </item>
+
+</menu>

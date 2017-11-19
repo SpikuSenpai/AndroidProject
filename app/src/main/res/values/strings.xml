@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">AndroidProject</string>
+    <string name="app_name">CUTing Edge Jobs</string>
+    <string name="title_activity_home">Upcoming Schedule</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="nothing_scheduled">Nothing Scheduled</string>
 </resources>

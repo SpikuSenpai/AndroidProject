@@ -1,0 +1,72 @@
+{
+	"applied_jobs":[
+		{
+			"id":1,
+			"name": "Event Ktisis",
+			"type": "photography",
+			"start_date": "23/11/2017",
+			"end_date": "23/11/2017",
+			"start_time": "10:00",
+			"end_time": "11:00",
+			"location": {
+				"loc_name": "ktirio tepak",
+				"lat": 5465465,
+				"long": 545466
+			},
+			"desc": "blabalabalbalbal"
+			
+		},
+		{
+			"id":2,
+			"name": "TEmp Ktisis",
+			"type": "photography",
+			"start_date": "20/12/2017",
+			"end_date": "20/12/2017",
+			"start_time": "10:00",
+			"end_time": "11:00",
+			"location": {
+				"loc_name": "ktirio tepak",
+				"lat": 5465465,
+				"long": 545466
+			},
+			"desc": "blabalabalbalbal"
+			
+		},
+		{
+			"id":3,
+			"name": "Something Event",
+			"type": "photography",
+			"start_date": "21/12/2017",
+			"end_date": "21/12/2017",
+			"start_time": "10:00",
+			"end_time": "11:00",
+			"location": {
+				"loc_name": "ktirio tepak",
+				"lat": 5465465,
+				"long": 545466
+			},
+			"desc": "blabalabalbalbal"
+			
+		}
+	],
+	
+	"completed_jobs":[
+		{
+			"id":1,
+			"name": "Event Ktisis",
+			"type": "photography",
+			"start_date": "20/03/2017",
+			"end_date": "20/03/2017",
+			"start_time": "10:00",
+			"end_time": "11:00",
+			"location": {
+				"loc_name": "ktirio tepak",
+				"lat": 5465465,
+				"long": 545466
+			},
+			"desc": "blabalabalbalbal"
+			
+		}
+	]
+
+}

@@ -39,9 +39,14 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.JobsView"/>
-        <activity android:name=".RegisterActivity" android:theme="@style/AppTheme.JobsView" android:label="Registration"/>
-        <activity android:name=".AuditActivity" android:theme="@style/AppTheme.JobsView"/>
+            android:theme="@style/AppTheme.JobsView" />
+        <activity
+            android:name=".RegisterActivity"
+            android:label="Registration"
+            android:theme="@style/AppTheme.JobsView" />
+        <activity
+            android:name=".AuditActivity"
+            android:theme="@style/AppTheme.JobsView" />
         <activity
             android:name=".JobViewActivity"
             android:theme="@style/AppTheme.JobsView">
@@ -51,9 +56,7 @@
         </activity>
         <activity
             android:name=".WebViewCutingActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -73,6 +76,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cutingapp.cuting.org.androidproject.JobViewActivity" />
         </activity>
+        <activity android:name=".FullScheduleActivity"></activity>
     </application>
 
 </manifest>

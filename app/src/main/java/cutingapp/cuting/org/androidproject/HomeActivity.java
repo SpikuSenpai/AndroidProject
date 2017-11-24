@@ -147,6 +147,13 @@ public class HomeActivity extends AppCompatActivity
             openGoogleMapsWithLocation();
         } else if (id == R.id.nav_cuting_website) {
             startWebpageCuting();
+        }else if (id == R.id.nav_full_schedule){
+            Intent intent = new Intent(this,FullScheduleActivity.class);
+            Bundle applied_jobs = new Bundle();
+            applied_jobs.putSerializable("helper",helper);
+            applied_jobs.putSerializable("employee",employee);
+            intent.putExtras(applied_jobs);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

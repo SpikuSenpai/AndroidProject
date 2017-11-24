@@ -21,7 +21,7 @@ public class EmployerDeserializer implements JsonDeserializer {
     public Object deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObj = json.getAsJsonObject();
         GenderType gender = context.deserialize(jsonObj.get("gender"),GenderType.class);
-        Type hashmapJobsType = new TypeToken<HashMap<Integer, Job>>() {
+        Type hashmapJobsType = new TypeToken<HashMap<String, Job>>() {
         }.getType();
         HashMap<String,Job> pending_jobs = context.deserialize(jsonObj.get("pending_jobs"),hashmapJobsType);
         HashMap<String,Job> comp_jobs = context.deserialize(jsonObj.get("completed_jobs"),hashmapJobsType);

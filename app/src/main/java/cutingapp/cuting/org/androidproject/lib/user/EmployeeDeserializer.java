@@ -26,7 +26,7 @@ public class EmployeeDeserializer implements JsonDeserializer<Employee> {
         Type arraylist = new TypeToken<ArrayList<String>>(){}.getType();
         ArrayList<String> skills =context.deserialize(jsonObj.get("skills").getAsJsonArray(), arraylist );
 
-        Type hashmapJobsType = new TypeToken<HashMap<Integer, Job>>() {
+        Type hashmapJobsType = new TypeToken<HashMap<String, Job>>() {
         }.getType();
         HashMap<String,Job> applied_jobs = context.deserialize(jsonObj.get("applied_jobs"),hashmapJobsType);
         HashMap<String,Job> comp_jobs = context.deserialize(jsonObj.get("completed_jobs"),hashmapJobsType);

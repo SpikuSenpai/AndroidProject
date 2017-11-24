@@ -11,8 +11,8 @@
     "organization": "asdasd",
     "password": "patata",
     "pending_jobs": {
+      "id": 2,
       "2": {
-        "id": 2,
         "name": "ΟΙΝΟΥΣΑ ΚΥΠΡΟΣ",
         "type": "photography",
         "organization": "CYPRUS UNIVERSITY OF TECHNOLOGY",

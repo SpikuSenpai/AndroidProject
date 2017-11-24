@@ -33,9 +33,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Locale;
+import java.util.Map;
 
+import cutingapp.cuting.org.androidproject.lib.helpers.Helper;
 import cutingapp.cuting.org.androidproject.lib.jobs.Job;
+import cutingapp.cuting.org.androidproject.lib.user.Employee;
+import cutingapp.cuting.org.androidproject.lib.user.Employer;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -43,40 +48,48 @@ public class HomeActivity extends AppCompatActivity
     private HashMap<String, ArrayList<Job>> jobs;
     private final int DAYS_TO_SHOW = 5;
     private final String CUTING_EDGE_EMAIL = "cutingedgelimassol@gmail.com";
-
+    private Helper helper;
+    private Employee employee;
+    private Employer employer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Bundle data = this.getIntent().getExtras();
+
         if (data != null) {
-            jobs = (HashMap<String, ArrayList<Job>>) data.getSerializable("jobs");
+            helper =(Helper)data.getSerializable("helper");
+            employee = (Employee) data.getSerializable("employee");
+            employer = (Employer) data.getSerializable("employer");
         }
+        // Employee
+        if(employee != null && employer == null) {
 
-        LinearLayout layoutUpcoming = (LinearLayout) findViewById(R.id.scroll_linearLayout);
-        SimpleDateFormat formatter = new SimpleDateFormat("EEEE - dd/MM", Locale.getDefault());
-        int backColor = Color.parseColor("#c11c2b99"); // light grey
-        int textColor = Color.parseColor("#ffffff"); //grey
-        Calendar cal = Calendar.getInstance();
-        String[] days = new String[DAYS_TO_SHOW];
-        ArrayList<Job> applied_jobs = jobs.get("applied_jobs");
 
-        for (int i = 0; i < DAYS_TO_SHOW; i++) {
-            days[i] = formatter.format(cal.getTime());
-            FrameLayout frameLayoutFragment = new FrameLayout(getApplicationContext());
-            frameLayoutFragment.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-            frameLayoutFragment.setId(i + 10);
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            UpcomingJobsViewFragment toAdd = UpcomingJobsViewFragment.newInstance(findJobofGivenDay(applied_jobs, cal.getTime()));
-            fragmentTransaction.add(frameLayoutFragment.getId(), toAdd);
-            fragmentTransaction.commit();
-            TextView dayname = makeDayNameTextView(i, days[i], backColor, textColor, frameLayoutFragment.getId());
-            cal.add(Calendar.DAY_OF_MONTH, 1);
-            layoutUpcoming.addView(dayname);
-            layoutUpcoming.addView(frameLayoutFragment);
+            LinearLayout layoutUpcoming = (LinearLayout) findViewById(R.id.scroll_linearLayout);
+            SimpleDateFormat formatter = new SimpleDateFormat("EEEE - dd/MM", Locale.getDefault());
+            int backColor = Color.parseColor("#c11c2b99"); // light grey
+            int textColor = Color.parseColor("#ffffff"); //grey
+            Calendar cal = Calendar.getInstance();
+            String[] days = new String[DAYS_TO_SHOW];
+            HashMap<String,Job> applied_jobs = employee.getApplied_jobs();
+
+            for (int i = 0; i < DAYS_TO_SHOW; i++) {
+                days[i] = formatter.format(cal.getTime());
+                FrameLayout frameLayoutFragment = new FrameLayout(getApplicationContext());
+                frameLayoutFragment.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                frameLayoutFragment.setId(i + 10);
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                UpcomingJobsViewFragment toAdd = UpcomingJobsViewFragment.newInstance(findJobofGivenDay(applied_jobs, cal.getTime()));
+                fragmentTransaction.add(frameLayoutFragment.getId(), toAdd);
+                fragmentTransaction.commit();
+                TextView dayname = makeDayNameTextView(i, days[i], backColor, textColor, frameLayoutFragment.getId());
+                cal.add(Calendar.DAY_OF_MONTH, 1);
+                layoutUpcoming.addView(dayname);
+                layoutUpcoming.addView(frameLayoutFragment);
+            }
         }
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -146,13 +159,11 @@ public class HomeActivity extends AppCompatActivity
 
     }
 
-    private ArrayList<Job> findJobofGivenDay(ArrayList<Job> jobsToCheck, Date dateToCheck) {
+    private ArrayList<Job> findJobofGivenDay(HashMap<String,Job> jobsToCheck, Date dateToCheck) {
         ArrayList<Job> returnjobs = new ArrayList<Job>();
         SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM", Locale.getDefault());
-//        SimpleDateFormat timeformat = new SimpleDateFormat("H",Locale.getDefault());
-//        Log.println(Log.DEBUG,"DATETOCHECK", dateToCheck.toString());
-//        Time nowTime = null;
         int j = 0;
+
         try {
 //            nowTime = new Time(timeformat.parse(timeformat.format(dateToCheck)).getTime());
             dateToCheck = dateformat.parse(dateformat.format(dateToCheck));
@@ -161,20 +172,20 @@ public class HomeActivity extends AppCompatActivity
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        for (int i = 0; i < jobsToCheck.size(); i++) {
-            Job temp = jobsToCheck.get(i);
+
+        Iterator<Map.Entry<String, Job>> itr = jobsToCheck.entrySet().iterator();
+        while (itr.hasNext()) {
+            Map.Entry<String, Job> pair = (Map.Entry<String, Job>) itr.next();
+            Job temp = pair.getValue();
             Date jobDate = null;
-            Time jobTime = null;
             try {
                 jobDate = dateformat.parse(dateformat.format(temp.getStartDate()));
-//                jobTime = new Time(timeformat.parse(temp.getStartTime().toString()).getTime());
-                Log.println(Log.DEBUG, "DATE", String.valueOf(jobTime));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
 
             if (dateToCheck.equals(jobDate)) {
-                returnjobs.add(j, jobsToCheck.get(i));
+                returnjobs.add(j, temp);
                 j++;
             }
         }

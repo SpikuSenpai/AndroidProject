@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:text="Not a member? Sign up now."
                 android:layout_marginTop="65dp"
-                android:onClick="sendToRegister"
+                android:onClick="sentToRegister"
                 android:textAlignment="center"/>
 
         </LinearLayout>

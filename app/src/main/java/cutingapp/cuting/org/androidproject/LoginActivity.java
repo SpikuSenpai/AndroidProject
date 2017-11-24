@@ -30,9 +30,21 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+
+import cutingapp.cuting.org.androidproject.lib.helpers.Helper;
+import cutingapp.cuting.org.androidproject.lib.user.Employee;
+import cutingapp.cuting.org.androidproject.lib.user.Employer;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -57,6 +69,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private UserLoginTask mAuthTask = null;
+    private Helper helper;
 
     // UI references.
     private AutoCompleteTextView mEmailView;
@@ -68,6 +81,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Bundle data = this.getIntent().getExtras();
+
+        helper = (Helper)data.getSerializable("helper");
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -187,63 +203,60 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
 
+            Employee employee = null;
+            Employer employer = null;
+            Iterator<Map.Entry<String, Employee>> ite = helper.getEmployees().entrySet().iterator();
 
-            //showProgress(true);
+            while (ite.hasNext()) {
+                Map.Entry<String, Employee> pair = (Map.Entry<String, Employee>) ite.next();
+               if(email.equals(pair.getValue().getEmail()) && password.equals(pair.getValue().getPassword())){
+                   employee = pair.getValue();
+                   break;
+               }
+            }
 
-            String r = readFromFile("register.txt");
-            Log.println(Log.DEBUG, "SOMETEXT", r);
-           /*  String[] lines = r.split("\\n");
-            String line2 = lines[0];
-            String line3=lines[1];
-            System.out.println(line2);
-            System.out.println(line3);*/
-           /* if((line2==email) && (line3==password)){
-                mAuthTask = new UserLoginTask(email, password);
-                Intent intent=new Intent(this,AuditActivity.class);
-                startActivity(intent);*/
-            /* }
-            else{
-                Toast.makeText(getApplicationContext(), "Wrong Email or Password", Toast.LENGTH_SHORT).show();
-            }*/
+            Iterator<Map.Entry<String, Employer>> itr = helper.getEmployers().entrySet().iterator();
 
+            while (itr.hasNext()) {
+                Map.Entry<String, Employer> pair = (Map.Entry<String, Employer>) itr.next();
+                if(email.equals(pair.getValue().getEmail()) && password.equals(pair.getValue().getPassword())){
+                    employer = pair.getValue();
+                    break;
+                }
+            }
+
+            if(employee != null){
+                Bundle s = new Bundle();
+                s.putSerializable("employee", employee);
+                s.putSerializable("helper",helper);
+                Intent i = new Intent(getApplicationContext(),HomeActivity.class);
+                i.putExtras(s);
+                startActivity(i);
+            }
+
+            if(employer != null){
+                Bundle s = new Bundle();
+                s.putSerializable("employer", employer);
+                s.putSerializable("helper",helper);
+                Intent i = new Intent(getApplicationContext(),HomeActivity.class);
+                i.putExtras(s);
+                startActivity(i);
+            }
+
+            Toast.makeText(getApplicationContext(),"Email or Password not found",Toast.LENGTH_LONG).show();
 
 
         }
     }
 
     public void sentToRegister(View v){
-        Intent intent = new Intent(this,RegisterActivity.class);
+        Bundle s = new Bundle();
+        s.putSerializable("helper", helper);
+        Intent intent = new Intent(getApplicationContext(),RegisterActivity.class);
+        intent.putExtras(s);
         startActivity(intent);
     }
-    private String readFromFile(String file) {
 
-        String ret = null;
-
-        try {
-            InputStream inputStream = getApplicationContext().openFileInput(file);
-
-            if ( inputStream != null ) {
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String receiveString = "";
-                StringBuilder stringBuilder = new StringBuilder();
-
-                while ( (receiveString = bufferedReader.readLine()) != null ) {
-                    stringBuilder.append(receiveString);
-                }
-
-                inputStream.close();
-                ret = stringBuilder.toString();
-            }
-        }
-        catch (FileNotFoundException e) {
-            Log.e("f","File not found: " + e.toString());
-        } catch (IOException e) {
-            Log.e("f", "Can not read file: " + e.toString());
-        }
-
-        return ret;
-    }
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
         return email.contains("@");

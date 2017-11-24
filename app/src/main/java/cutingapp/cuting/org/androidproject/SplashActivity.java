@@ -46,12 +46,92 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         splashContext = this;
-        helperObj = new Helper(this,"employees.json", "employers.json", "available_jobs.json");
+        helperObj = new Helper("employees.json", "employers.json", "available_jobs.json");
 
-        helperObj.
-        String jsonData = "{\n" +
-                "\t\"applied_jobs\":[\n" +
-                "\t\t{\n" +
+
+
+        String employees = "{\n" +
+                "  \"1\": {\n" +
+                "    \"id\": 1,\n" +
+                "    \"name\": \"haris\",\n" +
+                "    \"surname\": \"kozis\",\n" +
+                "    \"priv\": 1,\n" +
+                "    \"sid\": 2130123,\n" +
+                "    \"cid\": 12334534,\n" +
+                "    \"email\": \"harisjmd@gmail.com\",\n" +
+                "    \"phone_number\": \"99999999\",\n" +
+                "    \"gender\": \"MALE\",\n" +
+                "    \"skills\": [\n" +
+                "      \"videography\",\n" +
+                "      \"photography\"\n" +
+                "    ],\n" +
+                "    \"password\": \"patata\",\n" +
+                "    \"applied_jobs\": {\n" +
+                "      \"2\": {\n" +
+                "        \"id\": 2,\n" +
+                "        \"name\": \"ΟΙΝΟΥΣΑ ΚΥΠΡΟΣ\",\n" +
+                "        \"type\": \"photography\",\n" +
+                "        \"organization\": \"CYPRUS UNIVERSITY OF TECHNOLOGY\",\n" +
+                "        \"person_in_charge\": \"DIMITRIS TSALTAS\",\n" +
+                "        \"start_date\": \"24/11/2017\",\n" +
+                "        \"end_date\": \"24/11/2017\",\n" +
+                "        \"start_time\": \"17:30\",\n" +
+                "        \"end_time\": \"21:00\",\n" +
+                "        \"location\": {\n" +
+                "          \"loc_name\": \"ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1\",\n" +
+                "          \"lat\": 34.6754767,\n" +
+                "          \"long\": 33.0447799\n" +
+                "        },\n" +
+                "        \"desc\": \"Η βιντεοσκόπηση όλων των ομιλιών είναι επιθυμητή σε αυτόνομα αρχεία έτσι ώστε να γίνουν υλικό προς χρήση τόσο από το ΚΤΙΣΗΣ όσο και από το Εικονικό Μουσείο Κυπριακών Τροφίμων και Διατροφής\"\n" +
+                "      },\n" +
+                "      \"3\": {\n" +
+                "        \"id\": 3,\n" +
+                "        \"name\": \"Something Event\",\n" +
+                "        \"type\": \"photography\",\n" +
+                "        \"organization\": \"CYPRUS UNIVERSITY OF TECHNOLOGY\",\n" +
+                "        \"person_in_charge\": \"DIMITRIS TSALTAS\",\n" +
+                "        \"start_date\": \"26/11/2017\",\n" +
+                "        \"end_date\": \"26/11/2017\",\n" +
+                "        \"start_time\": \"19:00\",\n" +
+                "        \"end_time\": \"21:00\",\n" +
+                "        \"location\": {\n" +
+                "          \"loc_name\": \"Αμφιθέατρο Πεύκιος Γεωργιάδης\",\n" +
+                "          \"lat\": 34.6766777,\n" +
+                "          \"long\": 33.0423474\n" +
+                "        },\n" +
+                "        \"desc\": \"Φωτογράφηση και βιντεοσκόπηση της εκδήλωσης (χωρίς ζωντανή μετάδοση)\"\n" +
+                "      }\n" +
+                "    },\n" +
+                "    \"completed_jobs\": {\n" +
+                "      \"1\": {\n" +
+                "        \"id\": 1,\n" +
+                "        \"name\": \"3rd International Conference & Exhibition on Semiotics and Visual Communication.\",\n" +
+                "        \"type\": \"photography\",\n" +
+                "        \"organization\": \"Cyprus Semiotic Association\",\n" +
+                "        \"person_in_charge\": \"Ευριπίδης Ζαντίδης\",\n" +
+                "        \"start_date\": \"03/11/2017\",\n" +
+                "        \"end_date\": \"03/11/2017\",\n" +
+                "        \"start_time\": \"20:30\",\n" +
+                "        \"end_time\": \"22:00\",\n" +
+                "        \"location\": {\n" +
+                "          \"loc_name\": \"Tasos Papadopoulos, Amphithatre 1 (001) ground floor\",\n" +
+                "          \"lat\": 54.65465,\n" +
+                "          \"long\": 54.5466\n" +
+                "        },\n" +
+                "        \"desc\": \"video recording 2 speeches and poster exhibition opening\"\n" +
+                "      }\n" +
+                "    }\n" +
+                "  }\n" +
+                "\n" +
+                "}";
+
+
+        helperObj.writeToFile(getApplicationContext(),"employees.json", employees);
+        helperObj.readEmployees(getApplicationContext());
+
+
+        String available_jobs = "{\n" +
+                "\t\t1:{\n" +
                 "\t\t\t\"id\":1,\n" +
                 "\t\t\t\"name\": \"Training Program: \\\"Mastering Communication\\\"\",\n" +
                 "\t\t\t\"type\": \"videography\",\n" +
@@ -67,91 +147,19 @@ public class SplashActivity extends AppCompatActivity {
                 "\t\t\t\t\"long\": 54.5466\n" +
                 "\t\t\t},\n" +
                 "\t\t\t\"desc\": \" μονόλεπτης παρουσίασης για κάθε συνάδελφο. Όλες οι παρουσιάσεις θα μεταφερθούν από την sd card σε laptop για να σχολιαστούν από τους συμμετέχοντες\"\n" +
-                "\t\t\t\n" +
-                "\t\t},\n" +
-                "\t\t{\n" +
-                "\t\t\t\"id\":2,\n" +
-                "\t\t\t\"name\": \"ΟΙΝΟΥΣΑ ΚΥΠΡΟΣ\",\n" +
-                "\t\t\t\"type\": \"photography\",\n" +
-                "\t\t\t\"organization\": \"CYPRUS UNIVERSITY OF TECHNOLOGY\",\n" +
-                "\t\t\t\"person_in_charge\": \"DIMITRIS TSALTAS\",\n" +
-                "\t\t\t\"start_date\": \"24/11/2017\",\n" +
-                "\t\t\t\"end_date\": \"24/11/2017\",\n" +
-                "\t\t\t\"start_time\": \"17:30\",\n" +
-                "\t\t\t\"end_time\": \"21:00\",\n" +
-                "\t\t\t\"location\": {\n" +
-                "\t\t\t\t\"loc_name\": \"ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1\",\n" +
-                "\t\t\t\t\"lat\": 34.6754767,\n" +
-                "\t\t\t\t\"long\": 33.0447799\n" +
-                "\t\t\t},\n" +
-                "\t\t\t\"desc\": \"Η βιντεοσκόπηση όλων των ομιλιών είναι επιθυμητή σε αυτόνομα αρχεία έτσι ώστε να γίνουν υλικό προς χρήση τόσο από το ΚΤΙΣΗΣ όσο και από το Εικονικό Μουσείο Κυπριακών Τροφίμων και Διατροφής\"\n" +
-                "\t\t\t\n" +
-                "\t\t},\n" +
-                "\t\t{\n" +
-                "\t\t\t\"id\":3,\n" +
-                "\t\t\t\"name\": \"Something Event\",\n" +
-                "\t\t\t\"type\": \"photography\",\n" +
-                "\t\t\t\"organization\": \"CYPRUS UNIVERSITY OF TECHNOLOGY\",\n" +
-                "\t\t\t\"person_in_charge\": \"DIMITRIS TSALTAS\",\n" +
-                "\t\t\t\"start_date\": \"26/11/2017\",\n" +
-                "\t\t\t\"end_date\": \"26/11/2017\",\n" +
-                "\t\t\t\"start_time\": \"19:00\",\n" +
-                "\t\t\t\"end_time\": \"21:00\",\n" +
-                "\t\t\t\"location\": {\n" +
-                "\t\t\t\t\"loc_name\": \"Αμφιθέατρο Πεύκιος Γεωργιάδης\",\n" +
-                "\t\t\t\t\"lat\": 34.6766777,\n" +
-                "\t\t\t\t\"long\": 33.0423474\n" +
-                "\t\t\t},\n" +
-                "\t\t\t\"desc\": \"Φωτογράφηση και βιντεοσκόπηση της εκδήλωσης (χωρίς ζωντανή μετάδοση)\"\n" +
-                "\t\t\t\n" +
                 "\t\t}\n" +
-                "\t],\n" +
-                "\t\n" +
-                "\t\"completed_jobs\":[\n" +
-                "\t\t{\n" +
-                "\t\t\t\"id\":1,\n" +
-                "\t\t\t\"name\": \"3rd International Conference & Exhibition on Semiotics and Visual Communication.\",\n" +
-                "\t\t\t\"type\": \"photography\",\n" +
-                "\t\t\t\"organization\": \"Cyprus Semiotic Association\",\n" +
-                "\t\t\t\"person_in_charge\": \"Ευριπίδης Ζαντίδης\",\n" +
-                "\t\t\t\"start_date\": \"03/11/2017\",\n" +
-                "\t\t\t\"end_date\": \"03/11/2017\",\n" +
-                "\t\t\t\"start_time\": \"20:30\",\n" +
-                "\t\t\t\"end_time\": \"22:00\",\n" +
-                "\t\t\t\"location\": {\n" +
-                "\t\t\t\t\"loc_name\": \"Tasos Papadopoulos, Amphithatre 1 (001) ground floor\",\n" +
-                "\t\t\t\t\"lat\": 54.65465,\n" +
-                "\t\t\t\t\"long\": 54.5466\n" +
-                "\t\t\t},\n" +
-                "\t\t\t\"desc\": \"video recording 2 speeches and poster exhibition opening\"\n" +
-                "\t\t\t\n" +
-                "\t\t}\n" +
-                "\t]\n" +
-                "\n" +
                 "}";
 
-        writeToFile("jobs.json",jsonData);
+        helperObj.writeToFile(getApplicationContext(),"available_jobs.json", available_jobs);
+        helperObj.readAvailableJobs(getApplicationContext());
 
-        Type hashlistype = new TypeToken<HashMap<String, ArrayList<Job>>>() {
-        }.getType();
-
-        String jobsdata = readFromFile("jobs.json");
-
-        HashMap<String, ArrayList<Job>> jobs = gson.fromJson(jobsdata, hashlistype);
         final Bundle jobData = new Bundle();
-        jobData.putSerializable("jobs",jobs);
+        jobData.putSerializable("helper",helperObj);
 
-        /** dame tha checkarume an iparxi file g t user*/
-
-
-
-
-
-        /**********************************************/
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(splashContext, HomeActivity.class);
+                Intent intent = new Intent(splashContext, LoginActivity.class);
                 intent.putExtras(jobData);
                 startActivity(intent);
                 finish();

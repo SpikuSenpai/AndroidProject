@@ -9,6 +9,9 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import cutingapp.cuting.org.androidproject.lib.jobs.Job;
 
 /**
  * Created by j_md_ on 24/11/2017.
@@ -23,6 +26,11 @@ public class EmployeeDeserializer implements JsonDeserializer<Employee> {
         Type arraylist = new TypeToken<ArrayList<String>>(){}.getType();
         ArrayList<String> skills =context.deserialize(jsonObj.get("skills").getAsJsonArray(), arraylist );
 
+        Type hashmapJobsType = new TypeToken<HashMap<Integer, Job>>() {
+        }.getType();
+        HashMap<String,Job> applied_jobs = context.deserialize(jsonObj.get("applied_jobs"),hashmapJobsType);
+        HashMap<String,Job> comp_jobs = context.deserialize(jsonObj.get("completed_jobs"),hashmapJobsType);
+
         return new Employee(
                 jsonObj.get("id").getAsInt(),
                 jsonObj.get("name").getAsString(),
@@ -34,7 +42,9 @@ public class EmployeeDeserializer implements JsonDeserializer<Employee> {
                 gender,
                 jsonObj.get("priv").getAsInt(),
                 jsonObj.get("sid").getAsInt(),
-                skills
+                skills,
+                applied_jobs,
+                comp_jobs
                 );
     }
 }

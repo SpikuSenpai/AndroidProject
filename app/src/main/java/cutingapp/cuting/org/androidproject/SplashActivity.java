@@ -150,6 +150,79 @@ public class SplashActivity extends AppCompatActivity {
                 "\t\t}\n" +
                 "}";
 
+        String employers = "{\n" +
+                "  \"1\": {\n" +
+                "    \"id\": 1,\n" +
+                "    \"name\": \"charalampos\",\n" +
+                "    \"surname\": \"kozis\",\n" +
+                "    \"priv\": 1,\n" +
+                "    \"cid\": 12334534,\n" +
+                "    \"email\": \"patatas@gmail.com\",\n" +
+                "    \"phone_number\":\"1023910\",\n" +
+                "    \"gender\": \"MALE\",\n" +
+                "    \"organization\": \"asdasd\",\n" +
+                "    \"password\": \"patata\",\n" +
+                "    \"pending_jobs\": {\n" +
+                "      \"2\": {\n" +
+                "        \"id\": 2,\n" +
+                "        \"name\": \"ΟΙΝΟΥΣΑ ΚΥΠΡΟΣ\",\n" +
+                "        \"type\": \"photography\",\n" +
+                "        \"organization\": \"CYPRUS UNIVERSITY OF TECHNOLOGY\",\n" +
+                "        \"person_in_charge\": \"DIMITRIS TSALTAS\",\n" +
+                "        \"start_date\": \"24/11/2017\",\n" +
+                "        \"end_date\": \"24/11/2017\",\n" +
+                "        \"start_time\": \"17:30\",\n" +
+                "        \"end_time\": \"21:00\",\n" +
+                "        \"location\": {\n" +
+                "          \"loc_name\": \"ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1\",\n" +
+                "          \"lat\": 34.6754767,\n" +
+                "          \"long\": 33.0447799\n" +
+                "        },\n" +
+                "        \"desc\": \"Η βιντεοσκόπηση όλων των ομιλιών είναι επιθυμητή σε αυτόνομα αρχεία έτσι ώστε να γίνουν υλικό προς χρήση τόσο από το ΚΤΙΣΗΣ όσο και από το Εικονικό Μουσείο Κυπριακών Τροφίμων και Διατροφής\"\n" +
+                "      },\n" +
+                "      \"3\": {\n" +
+                "        \"id\": 3,\n" +
+                "        \"name\": \"Something Event\",\n" +
+                "        \"type\": \"photography\",\n" +
+                "        \"organization\": \"CYPRUS UNIVERSITY OF TECHNOLOGY\",\n" +
+                "        \"person_in_charge\": \"DIMITRIS TSALTAS\",\n" +
+                "        \"start_date\": \"26/11/2017\",\n" +
+                "        \"end_date\": \"26/11/2017\",\n" +
+                "        \"start_time\": \"19:00\",\n" +
+                "        \"end_time\": \"21:00\",\n" +
+                "        \"location\": {\n" +
+                "          \"loc_name\": \"Αμφιθέατρο Πεύκιος Γεωργιάδης\",\n" +
+                "          \"lat\": 34.6766777,\n" +
+                "          \"long\": 33.0423474\n" +
+                "        },\n" +
+                "        \"desc\": \"Φωτογράφηση και βιντεοσκόπηση της εκδήλωσης (χωρίς ζωντανή μετάδοση)\"\n" +
+                "      }\n" +
+                "    },\n" +
+                "    \"completed_jobs\": {\n" +
+                "      \"1\": {\n" +
+                "        \"id\": 1,\n" +
+                "        \"name\": \"3rd International Conference & Exhibition on Semiotics and Visual Communication.\",\n" +
+                "        \"type\": \"photography\",\n" +
+                "        \"organization\": \"Cyprus Semiotic Association\",\n" +
+                "        \"person_in_charge\": \"Ευριπίδης Ζαντίδης\",\n" +
+                "        \"start_date\": \"03/11/2017\",\n" +
+                "        \"end_date\": \"03/11/2017\",\n" +
+                "        \"start_time\": \"20:30\",\n" +
+                "        \"end_time\": \"22:00\",\n" +
+                "        \"location\": {\n" +
+                "          \"loc_name\": \"Tasos Papadopoulos, Amphithatre 1 (001) ground floor\",\n" +
+                "          \"lat\": 54.65465,\n" +
+                "          \"long\": 54.5466\n" +
+                "        },\n" +
+                "        \"desc\": \"video recording 2 speeches and poster exhibition opening\"\n" +
+                "      }\n" +
+                "    }\n" +
+                "  }\n" +
+                "}";
+
+
+        helperObj.writeToFile(getApplicationContext(),"employers.json",employers);
+        helperObj.readEmployers(getApplicationContext());
         helperObj.writeToFile(getApplicationContext(),"available_jobs.json", available_jobs);
         helperObj.readAvailableJobs(getApplicationContext());
 

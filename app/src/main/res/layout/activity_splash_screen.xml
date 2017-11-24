@@ -5,15 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="cutingapp.cuting.org.androidproject.SplashScreen">
+    tools:context="cutingapp.cuting.org.androidproject.SplashActivity">
+
     <ImageView
-        android:src="@drawable/ce_transparent"
-        android:background="@android:color/transparent"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="67dp"
-        android:layout_height="fill_parent"
         android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="67dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ce_transparent" />
 
 </RelativeLayout>

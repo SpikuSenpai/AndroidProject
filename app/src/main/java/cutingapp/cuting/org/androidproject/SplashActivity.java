@@ -56,50 +56,56 @@ public class SplashActivity extends AppCompatActivity {
                 "\t\"applied_jobs\":[\n" +
                 "\t\t{\n" +
                 "\t\t\t\"id\":1,\n" +
-                "\t\t\t\"name\": \"Event Ktisis\",\n" +
-                "\t\t\t\"type\": \"photography\",\n" +
-                "\t\t\t\"start_date\": \"23/11/2017\",\n" +
-                "\t\t\t\"end_date\": \"23/11/2017\",\n" +
-                "\t\t\t\"start_time\": \"10:00\",\n" +
-                "\t\t\t\"end_time\": \"11:00\",\n" +
+                "\t\t\t\"name\": \"Training Program: \\\"Mastering Communication\\\"\",\n" +
+                "\t\t\t\"type\": \"videography\",\n" +
+                "\t\t\t\"organization\": \"CUT Υπηρεσία Ανθρώπινου Δυναμικού\",\n" +
+                "\t\t\t\"person_in_charge\": \"konstantia kousoulou\",\n" +
+                "\t\t\t\"start_date\": \"22/11/2017\",\n" +
+                "\t\t\t\"end_date\": \"22/11/2017\",\n" +
+                "\t\t\t\"start_time\": \"9:30\",\n" +
+                "\t\t\t\"end_time\": \"11:30\",\n" +
                 "\t\t\t\"location\": {\n" +
-                "\t\t\t\t\"loc_name\": \"ktirio tepak\",\n" +
-                "\t\t\t\t\"lat\": 5465465,\n" +
-                "\t\t\t\t\"long\": 545466\n" +
+                "\t\t\t\t\"loc_name\": \"Poseidonia Beach Hotel\",\n" +
+                "\t\t\t\t\"lat\": 54.65465,\n" +
+                "\t\t\t\t\"long\": 54.5466\n" +
                 "\t\t\t},\n" +
-                "\t\t\t\"desc\": \"blabalabalbalbal\"\n" +
+                "\t\t\t\"desc\": \" μονόλεπτης παρουσίασης για κάθε συνάδελφο. Όλες οι παρουσιάσεις θα μεταφερθούν από την sd card σε laptop για να σχολιαστούν από τους συμμετέχοντες\"\n" +
                 "\t\t\t\n" +
                 "\t\t},\n" +
                 "\t\t{\n" +
                 "\t\t\t\"id\":2,\n" +
-                "\t\t\t\"name\": \"TEmp Ktisis\",\n" +
+                "\t\t\t\"name\": \"ΟΙΝΟΥΣΑ ΚΥΠΡΟΣ\",\n" +
                 "\t\t\t\"type\": \"photography\",\n" +
-                "\t\t\t\"start_date\": \"20/12/2017\",\n" +
-                "\t\t\t\"end_date\": \"20/12/2017\",\n" +
-                "\t\t\t\"start_time\": \"10:00\",\n" +
-                "\t\t\t\"end_time\": \"11:00\",\n" +
+                "\t\t\t\"organization\": \"CYPRUS UNIVERSITY OF TECHNOLOGY\",\n" +
+                "\t\t\t\"person_in_charge\": \"DIMITRIS TSALTAS\",\n" +
+                "\t\t\t\"start_date\": \"24/11/2017\",\n" +
+                "\t\t\t\"end_date\": \"24/11/2017\",\n" +
+                "\t\t\t\"start_time\": \"17:30\",\n" +
+                "\t\t\t\"end_time\": \"21:00\",\n" +
                 "\t\t\t\"location\": {\n" +
-                "\t\t\t\t\"loc_name\": \"ktirio tepak\",\n" +
-                "\t\t\t\t\"lat\": 5465465,\n" +
-                "\t\t\t\t\"long\": 545466\n" +
+                "\t\t\t\t\"loc_name\": \"ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1\",\n" +
+                "\t\t\t\t\"lat\": 34.6754767,\n" +
+                "\t\t\t\t\"long\": 33.0447799\n" +
                 "\t\t\t},\n" +
-                "\t\t\t\"desc\": \"blabalabalbalbal\"\n" +
+                "\t\t\t\"desc\": \"Η βιντεοσκόπηση όλων των ομιλιών είναι επιθυμητή σε αυτόνομα αρχεία έτσι ώστε να γίνουν υλικό προς χρήση τόσο από το ΚΤΙΣΗΣ όσο και από το Εικονικό Μουσείο Κυπριακών Τροφίμων και Διατροφής\"\n" +
                 "\t\t\t\n" +
                 "\t\t},\n" +
                 "\t\t{\n" +
                 "\t\t\t\"id\":3,\n" +
                 "\t\t\t\"name\": \"Something Event\",\n" +
                 "\t\t\t\"type\": \"photography\",\n" +
-                "\t\t\t\"start_date\": \"21/11/2017\",\n" +
-                "\t\t\t\"end_date\": \"21/11/2017\",\n" +
-                "\t\t\t\"start_time\": \"10:00\",\n" +
-                "\t\t\t\"end_time\": \"11:00\",\n" +
+                "\t\t\t\"organization\": \"CYPRUS UNIVERSITY OF TECHNOLOGY\",\n" +
+                "\t\t\t\"person_in_charge\": \"DIMITRIS TSALTAS\",\n" +
+                "\t\t\t\"start_date\": \"26/11/2017\",\n" +
+                "\t\t\t\"end_date\": \"26/11/2017\",\n" +
+                "\t\t\t\"start_time\": \"19:00\",\n" +
+                "\t\t\t\"end_time\": \"21:00\",\n" +
                 "\t\t\t\"location\": {\n" +
-                "\t\t\t\t\"loc_name\": \"ktirio tepak\",\n" +
-                "\t\t\t\t\"lat\": 5465465,\n" +
-                "\t\t\t\t\"long\": 545466\n" +
+                "\t\t\t\t\"loc_name\": \"Αμφιθέατρο Πεύκιος Γεωργιάδης\",\n" +
+                "\t\t\t\t\"lat\": 34.6766777,\n" +
+                "\t\t\t\t\"long\": 33.0423474\n" +
                 "\t\t\t},\n" +
-                "\t\t\t\"desc\": \"blabalabalbalbal\"\n" +
+                "\t\t\t\"desc\": \"Φωτογράφηση και βιντεοσκόπηση της εκδήλωσης (χωρίς ζωντανή μετάδοση)\"\n" +
                 "\t\t\t\n" +
                 "\t\t}\n" +
                 "\t],\n" +
@@ -107,23 +113,26 @@ public class SplashActivity extends AppCompatActivity {
                 "\t\"completed_jobs\":[\n" +
                 "\t\t{\n" +
                 "\t\t\t\"id\":1,\n" +
-                "\t\t\t\"name\": \"Event Ktisis\",\n" +
+                "\t\t\t\"name\": \"3rd International Conference & Exhibition on Semiotics and Visual Communication.\",\n" +
                 "\t\t\t\"type\": \"photography\",\n" +
-                "\t\t\t\"start_date\": \"20/03/2017\",\n" +
-                "\t\t\t\"end_date\": \"20/03/2017\",\n" +
-                "\t\t\t\"start_time\": \"10:00\",\n" +
-                "\t\t\t\"end_time\": \"11:00\",\n" +
+                "\t\t\t\"organization\": \"Cyprus Semiotic Association\",\n" +
+                "\t\t\t\"person_in_charge\": \"Ευριπίδης Ζαντίδης\",\n" +
+                "\t\t\t\"start_date\": \"03/11/2017\",\n" +
+                "\t\t\t\"end_date\": \"03/11/2017\",\n" +
+                "\t\t\t\"start_time\": \"20:30\",\n" +
+                "\t\t\t\"end_time\": \"22:00\",\n" +
                 "\t\t\t\"location\": {\n" +
-                "\t\t\t\t\"loc_name\": \"ktirio tepak\",\n" +
-                "\t\t\t\t\"lat\": 5465465,\n" +
-                "\t\t\t\t\"long\": 545466\n" +
+                "\t\t\t\t\"loc_name\": \"Tasos Papadopoulos, Amphithatre 1 (001) ground floor\",\n" +
+                "\t\t\t\t\"lat\": 54.65465,\n" +
+                "\t\t\t\t\"long\": 54.5466\n" +
                 "\t\t\t},\n" +
-                "\t\t\t\"desc\": \"blabalabalbalbal\"\n" +
+                "\t\t\t\"desc\": \"video recording 2 speeches and poster exhibition opening\"\n" +
                 "\t\t\t\n" +
                 "\t\t}\n" +
                 "\t]\n" +
                 "\n" +
                 "}";
+
         writeToFile("jobs.json",jsonData);
 
         Type hashlistype = new TypeToken<HashMap<String, ArrayList<Job>>>() {
@@ -182,7 +191,7 @@ public class SplashActivity extends AppCompatActivity {
     }
     private String readFromFile(String file) {
 
-        String ret = "";
+        String ret = null;
 
         try {
             InputStream inputStream = getApplicationContext().openFileInput(file);

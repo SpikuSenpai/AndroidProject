@@ -19,5 +19,7 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="view_on_map">View on Map</string>
     <string name="error_invalid_email">This email address is invalid</string>
+    <string name="title_activity_job_location">Map</string>
 </resources>

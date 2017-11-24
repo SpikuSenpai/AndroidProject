@@ -5,9 +5,10 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="colorPrimary">@color/primary_material_light_1</item>
         <item name="colorPrimaryDark">@color/primary_material_light_1</item>
-        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:actionBarDivider">@color/primary_material_light_1</item>
+        <item name="android:textColor">@color/grey</item>
         <item name="android:textColorPrimary">@color/grey</item>
+        <item name="android:textColorSecondary">@color/grey</item>
         <item name="android:windowBackground">@color/primary_material_light_1</item>
         <item name="android:navigationBarColor">@color/primary_material_light_1</item>
         <!--<item name="android:navigation"></item>-->
@@ -17,6 +18,7 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:textColorPrimary">@color/grey</item>
     </style>
     
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
@@ -26,10 +28,25 @@
 
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar">
 
     </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="AppTheme.JobsView" parent="Theme.AppCompat.Light">
+
+            <!-- Customize your theme here. -->
+            <item name="android:windowLightStatusBar">true</item>
+            <item name="colorPrimary">@color/primary_material_light_1</item>
+            <item name="colorPrimaryDark">@color/primary_material_light_1</item>
+            <item name="android:actionBarDivider">@color/primary_material_light_1</item>
+            <item name="android:textColor">@color/grey</item>
+            <item name="android:textColorPrimary">@color/grey</item>
+            <item name="android:textColorSecondary">@color/grey</item>
+            <item name="android:windowBackground">@color/primary_material_light_1</item>
+            <item name="android:navigationBarColor">@color/primary_material_light_1</item>
+            <!--<item name="android:navigation"></item>-->
+
+    </style>
 </resources>

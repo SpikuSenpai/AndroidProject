@@ -11,7 +11,7 @@ import java.util.Date;
  * Created by j_md_ on 21/11/2017.
  */
 
-public class Job implements Serializable{
+public class Job implements Serializable {
     @SerializedName("id")
     @Expose
     private int id;
@@ -23,6 +23,14 @@ public class Job implements Serializable{
     @SerializedName("type")
     @Expose
     private JobType type;
+
+    @SerializedName("organization")
+    @Expose
+    private String organization;
+
+    @SerializedName("person_in_charge")
+    @Expose
+    private String person_in_charge;
 
     @SerializedName("start_date")
     @Expose
@@ -48,11 +56,12 @@ public class Job implements Serializable{
     @Expose
     private String desc;
 
-
-    public Job(int id, String name, JobType type, Date startDate, Date endDate, Time startTime, Time endTime, Location location, String desc) {
+    public Job(int id, String name, JobType type, String organization, String person_in_charge, Date startDate, Date endDate, Time startTime, Time endTime, Location location, String desc) {
         this.id = id;
         this.name = name;
         this.type = type;
+        this.organization = organization;
+        this.person_in_charge = person_in_charge;
         this.startDate = startDate;
         this.endDate = endDate;
         this.startTime = startTime;
@@ -131,5 +140,21 @@ public class Job implements Serializable{
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public String getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(String organization) {
+        this.organization = organization;
+    }
+
+    public String getPerson_in_charge() {
+        return person_in_charge;
+    }
+
+    public void setPerson_in_charge(String person_in_charge) {
+        this.person_in_charge = person_in_charge;
     }
 }

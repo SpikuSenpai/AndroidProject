@@ -21,19 +21,17 @@ public class Location implements Serializable {
 
     @SerializedName("lat")
     @Expose
-    private int latitude;
+    private float latitude;
 
     @SerializedName("long")
     @Expose
-    private int longitude;
+    private float longitude;
 
-
-    public Location(String loc_name, int latitude, int longitude ){
+    public Location(String name, float latitude, float longitude) {
+        this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.name = loc_name;
     }
-
 
     public String getName() {
         return name;
@@ -43,20 +41,19 @@ public class Location implements Serializable {
         this.name = name;
     }
 
-    public int getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(int latitude) {
+    public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
 
-    public int getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(int longitude) {
+    public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
-
 }

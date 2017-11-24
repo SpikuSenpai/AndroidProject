@@ -12,11 +12,11 @@
     <item android:title="Jobs">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_full_schedule"
                 android:icon="@android:drawable/ic_menu_today"
                 android:title="Full Schedule" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_browse_jobs"
                 android:icon="@android:drawable/ic_search_category_default"
                 android:title="Browse Jobs" />
             <item
@@ -30,7 +30,8 @@
             <item
                 android:id="@+id/nav_cuting_email"
                 android:icon="@drawable/email"
-                android:title="Email" />
+                android:title="Email"
+                />
             <item
                 android:id="@+id/nav_cuting_website"
                 android:icon="@drawable/webpage"

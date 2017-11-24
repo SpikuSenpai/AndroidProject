@@ -16,6 +16,6 @@ public class LocationDeserializer implements JsonDeserializer<Location> {
     @Override
     public Location deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObj = json.getAsJsonObject();
-        return new Location(jsonObj.get("loc_name").getAsString(),jsonObj.get("lat").getAsInt(),jsonObj.get("long").getAsInt());
+        return new Location(jsonObj.get("loc_name").getAsString(),jsonObj.get("lat").getAsFloat(),jsonObj.get("long").getAsFloat());
     }
 }

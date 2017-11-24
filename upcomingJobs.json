@@ -2,50 +2,56 @@
 	"applied_jobs":[
 		{
 			"id":1,
-			"name": "Event Ktisis",
-			"type": "photography",
-			"start_date": "23/11/2017",
-			"end_date": "23/11/2017",
-			"start_time": "10:00",
-			"end_time": "11:00",
+			"name": "Training Program: \"Mastering Communication\"",
+			"type": "videography",
+			"organization": "CUT Υπηρεσία Ανθρώπινου Δυναμικού",
+			"person_in_charge": "konstantia kousoulou",
+			"start_date": "22/11/2017",
+			"end_date": "22/11/2017",
+			"start_time": "9:30",
+			"end_time": "11:30",
 			"location": {
-				"loc_name": "ktirio tepak",
-				"lat": 5465465,
-				"long": 545466
+				"loc_name": "Poseidonia Beach Hotel",
+				"lat": 54.65465,
+				"long": 54.5466
 			},
-			"desc": "blabalabalbalbal"
+			"desc": " μονόλεπτης παρουσίασης για κάθε συνάδελφο. Όλες οι παρουσιάσεις θα μεταφερθούν από την sd card σε laptop για να σχολιαστούν από τους συμμετέχοντες"
 			
 		},
 		{
 			"id":2,
-			"name": "TEmp Ktisis",
+			"name": "ΟΙΝΟΥΣΑ ΚΥΠΡΟΣ",
 			"type": "photography",
-			"start_date": "20/12/2017",
-			"end_date": "20/12/2017",
-			"start_time": "10:00",
-			"end_time": "11:00",
+			"organization": "CYPRUS UNIVERSITY OF TECHNOLOGY",
+			"person_in_charge": "DIMITRIS TSALTAS",
+			"start_date": "24/11/2017",
+			"end_date": "24/11/2017",
+			"start_time": "17:30",
+			"end_time": "21:00",
 			"location": {
-				"loc_name": "ktirio tepak",
-				"lat": 5465465,
-				"long": 545466
+				"loc_name": "ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1",
+				"lat": 34.6754767,
+				"long": 33.0447799
 			},
-			"desc": "blabalabalbalbal"
+			"desc": "Η βιντεοσκόπηση όλων των ομιλιών είναι επιθυμητή σε αυτόνομα αρχεία έτσι ώστε να γίνουν υλικό προς χρήση τόσο από το ΚΤΙΣΗΣ όσο και από το Εικονικό Μουσείο Κυπριακών Τροφίμων και Διατροφής"
 			
 		},
 		{
 			"id":3,
 			"name": "Something Event",
 			"type": "photography",
-			"start_date": "21/12/2017",
-			"end_date": "21/12/2017",
-			"start_time": "10:00",
-			"end_time": "11:00",
+			"organization": "CYPRUS UNIVERSITY OF TECHNOLOGY",
+			"person_in_charge": "DIMITRIS TSALTAS",
+			"start_date": "26/11/2017",
+			"end_date": "26/11/2017",
+			"start_time": "19:00",
+			"end_time": "21:00",
 			"location": {
-				"loc_name": "ktirio tepak",
-				"lat": 5465465,
-				"long": 545466
+				"loc_name": "Αμφιθέατρο Πεύκιος Γεωργιάδης",
+				"lat": 34.6766777,
+				"long": 33.0423474
 			},
-			"desc": "blabalabalbalbal"
+			"desc": "Φωτογράφηση και βιντεοσκόπηση της εκδήλωσης (χωρίς ζωντανή μετάδοση)"
 			
 		}
 	],
@@ -53,18 +59,20 @@
 	"completed_jobs":[
 		{
 			"id":1,
-			"name": "Event Ktisis",
+			"name": "3rd International Conference & Exhibition on Semiotics and Visual Communication.",
 			"type": "photography",
-			"start_date": "20/03/2017",
-			"end_date": "20/03/2017",
-			"start_time": "10:00",
-			"end_time": "11:00",
+			"organization": "Cyprus Semiotic Association",
+			"person_in_charge": "Ευριπίδης Ζαντίδης",
+			"start_date": "03/11/2017",
+			"end_date": "03/11/2017",
+			"start_time": "20:30",
+			"end_time": "22:00",
 			"location": {
-				"loc_name": "ktirio tepak",
-				"lat": 5465465,
-				"long": 545466
+				"loc_name": "Tasos Papadopoulos, Amphithatre 1 (001) ground floor",
+				"lat": 54.65465,
+				"long": 54.5466
 			},
-			"desc": "blabalabalbalbal"
+			"desc": "video recording 2 speeches and poster exhibition opening"
 			
 		}
 	]

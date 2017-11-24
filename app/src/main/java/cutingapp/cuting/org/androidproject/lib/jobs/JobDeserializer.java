@@ -30,6 +30,8 @@ public class JobDeserializer implements JsonDeserializer<Job> {
                 jsonObj.get("id").getAsInt(),
                 jsonObj.get("name").getAsString(),
                 type,
+                jsonObj.get("organization").getAsString(),
+                jsonObj.get("person_in_charge").getAsString(),
                 startDate,
                 endDate,
                 startTime,

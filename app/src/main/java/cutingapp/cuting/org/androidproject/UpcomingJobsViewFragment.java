@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -16,7 +15,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 
 import cutingapp.cuting.org.androidproject.lib.jobs.Job;
@@ -61,6 +65,7 @@ public class UpcomingJobsViewFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             jobs = (ArrayList<Job>) getArguments().getSerializable("jobs");
         }
@@ -70,41 +75,43 @@ public class UpcomingJobsViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        /**
-         *
-         *  Seperatorline
-         *
-         * android:layout_width="match_parent"
-         * android:layout_height="2dp"
-         * android:background="@android:color/grey" />
-         *
-         * */
+
         View rootView = inflater.inflate(R.layout.fragment_upcoming_jobs_view, container, false);
         LinearLayout linearLayout = (LinearLayout)rootView.findViewById(R.id.jobs);
 
+        SimpleDateFormat timef = new SimpleDateFormat("HH:mm", Locale.getDefault());
         int numJobs = jobs.size();
         Log.println(Log.DEBUG,"NONE","NumJobs = " + numJobs);
         int backColor;
         int textColor;
+        String txtViewName = "";
         if(numJobs > 0){
             backColor = Color.parseColor("#f1f1f3"); // light grey
             textColor = Color.parseColor("#3c3f41"); //grey
-
+            Date now = (Calendar.getInstance()).getTime();
             for(int i = 0; i < numJobs; i++){
                 Job tempJob = jobs.get(i);
-                TextView tempTxtView = makeJobNameTextView(tempJob.getName(),getActivity(), backColor, textColor, R.drawable.goto_job_arrow, R.drawable.bottom_border);
-                Bundle jobBundle = new Bundle();
-                jobBundle.putSerializable("job_obj", tempJob);
-                final Intent intent = new Intent(getContext(),JobViewActivity.class);
-                intent.putExtra("job_obj",jobBundle);
+                if(tempJob.getStartDate().after(now) || tempJob.getStartTime().after(now)) {
+                    txtViewName = tempJob.getName() + " at " + timef.format(tempJob.getStartTime()) + " - " + timef.format(tempJob.getEndTime());
+                    TextView tempTxtView = makeJobNameTextView(txtViewName, getActivity(), backColor, textColor, R.drawable.goto_job_arrow, R.drawable.bottom_border);
+                    Bundle jobBundle = new Bundle();
+                    jobBundle.putSerializable("job_obj", tempJob);
+                    final Intent intent = new Intent(this.getContext(), JobViewActivity.class);
+                    intent.putExtras(jobBundle);
 
-                tempTxtView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        startActivity(intent);
-                    }
-                });
-                linearLayout.addView(tempTxtView);
+                    tempTxtView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            startActivity(intent);
+                        }
+                    });
+                    linearLayout.addView(tempTxtView);
+                }
+            }
+            if(linearLayout.getChildCount() == 0){
+                backColor = Color.parseColor("#d3c1c1c1"); // darker grey
+                textColor = Color.parseColor("#3c3f41"); //grey
+                linearLayout.addView(makeNothingTextView("Nothing Scheduled",getActivity(),backColor,textColor));
             }
 
         }

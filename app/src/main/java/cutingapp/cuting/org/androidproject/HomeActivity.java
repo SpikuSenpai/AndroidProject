@@ -1,15 +1,14 @@
 package cutingapp.cuting.org.androidproject;
 
-import android.app.Activity;
+
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
+
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -40,20 +39,21 @@ import cutingapp.cuting.org.androidproject.lib.jobs.Job;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-            UpcomingJobsViewFragment.OnFragmentInteractionListener{
-    private  HashMap<String,ArrayList<Job>> jobs;
+        UpcomingJobsViewFragment.OnFragmentInteractionListener {
+    private HashMap<String, ArrayList<Job>> jobs;
     private final int DAYS_TO_SHOW = 5;
+    private final String CUTING_EDGE_EMAIL = "cutingedgelimassol@gmail.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Bundle data = this.getIntent().getExtras();
-        if(data != null){
-            jobs = (HashMap<String,ArrayList<Job>>) data.getSerializable("jobs");
+        if (data != null) {
+            jobs = (HashMap<String, ArrayList<Job>>) data.getSerializable("jobs");
         }
 
-        LinearLayout layoutUpcoming =(LinearLayout) findViewById(R.id.scroll_linearLayout);
+        LinearLayout layoutUpcoming = (LinearLayout) findViewById(R.id.scroll_linearLayout);
         SimpleDateFormat formatter = new SimpleDateFormat("EEEE - dd/MM", Locale.getDefault());
         int backColor = Color.parseColor("#c11c2b99"); // light grey
         int textColor = Color.parseColor("#ffffff"); //grey
@@ -61,17 +61,17 @@ public class HomeActivity extends AppCompatActivity
         String[] days = new String[DAYS_TO_SHOW];
         ArrayList<Job> applied_jobs = jobs.get("applied_jobs");
 
-        for(int i = 0; i < DAYS_TO_SHOW; i++){
+        for (int i = 0; i < DAYS_TO_SHOW; i++) {
             days[i] = formatter.format(cal.getTime());
             FrameLayout frameLayoutFragment = new FrameLayout(getApplicationContext());
-            frameLayoutFragment.setLayoutParams( new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-            frameLayoutFragment.setId(i+10);
+            frameLayoutFragment.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            frameLayoutFragment.setId(i + 10);
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             UpcomingJobsViewFragment toAdd = UpcomingJobsViewFragment.newInstance(findJobofGivenDay(applied_jobs, cal.getTime()));
-            fragmentTransaction.add(frameLayoutFragment.getId(),toAdd);
+            fragmentTransaction.add(frameLayoutFragment.getId(), toAdd);
             fragmentTransaction.commit();
-            TextView dayname = makeDayNameTextView(i,days[i],backColor, textColor, frameLayoutFragment.getId());
+            TextView dayname = makeDayNameTextView(i, days[i], backColor, textColor, frameLayoutFragment.getId());
             cal.add(Calendar.DAY_OF_MONTH, 1);
             layoutUpcoming.addView(dayname);
             layoutUpcoming.addView(frameLayoutFragment);
@@ -128,12 +128,12 @@ public class HomeActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_edit_prof) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_cuting_email) {
+            sendEmail();
+        } else if (id == R.id.nav_cuting_location) {
+            openGoogleMapsWithLocation();
+        } else if (id == R.id.nav_cuting_website) {
+            startWebpageCuting();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -142,46 +142,46 @@ public class HomeActivity extends AppCompatActivity
     }
 
     @Override
-    public void onFragmentInteraction(Uri uri){
+    public void onFragmentInteraction(Uri uri) {
 
     }
 
     private ArrayList<Job> findJobofGivenDay(ArrayList<Job> jobsToCheck, Date dateToCheck) {
         ArrayList<Job> returnjobs = new ArrayList<Job>();
-        SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM",Locale.getDefault());
-        SimpleDateFormat timeformat = new SimpleDateFormat("H",Locale.getDefault());
-        Log.println(Log.DEBUG,"DATETOCHECK", dateToCheck.toString());
-        Time nowTime = null;
+        SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM", Locale.getDefault());
+//        SimpleDateFormat timeformat = new SimpleDateFormat("H",Locale.getDefault());
+//        Log.println(Log.DEBUG,"DATETOCHECK", dateToCheck.toString());
+//        Time nowTime = null;
         int j = 0;
         try {
-            nowTime = new Time(timeformat.parse(timeformat.format(dateToCheck)).getTime());
+//            nowTime = new Time(timeformat.parse(timeformat.format(dateToCheck)).getTime());
             dateToCheck = dateformat.parse(dateformat.format(dateToCheck));
 
-            Log.println(Log.DEBUG,"TIMETOCHECK", String.valueOf(nowTime));
+//            Log.println(Log.DEBUG,"TIMETOCHECK", String.valueOf(nowTime));
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        for(int i = 0; i < jobsToCheck.size(); i++){
+        for (int i = 0; i < jobsToCheck.size(); i++) {
             Job temp = jobsToCheck.get(i);
             Date jobDate = null;
             Time jobTime = null;
             try {
                 jobDate = dateformat.parse(dateformat.format(temp.getStartDate()));
-                jobTime = new Time(timeformat.parse(temp.getStartTime().toString()).getTime());
-                Log.println(Log.DEBUG,"DATE", String.valueOf(jobTime));
+//                jobTime = new Time(timeformat.parse(temp.getStartTime().toString()).getTime());
+                Log.println(Log.DEBUG, "DATE", String.valueOf(jobTime));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
 
-            if( dateToCheck.equals(jobDate) && jobTime.getTime() > nowTime.getTime()){
-                returnjobs.add(j,jobsToCheck.get(i));
+            if (dateToCheck.equals(jobDate)) {
+                returnjobs.add(j, jobsToCheck.get(i));
                 j++;
             }
         }
         return returnjobs;
     }
 
-    private TextView makeDayNameTextView(final int id, String name, int backColor, int textColor, final int frameLayout){
+    private TextView makeDayNameTextView(final int id, String name, int backColor, int textColor, final int frameLayout) {
         /**
          *
          *   <TextView
@@ -206,8 +206,8 @@ public class HomeActivity extends AppCompatActivity
         dayView.setTextColor(textColor);
         dayView.setTypeface(dayView.getTypeface(), Typeface.BOLD);
         dayView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 19);
-        dayView.setLayoutParams( new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,180));
-        dayView.setPadding(15,0,15,0);
+        dayView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 180));
+        dayView.setPadding(15, 0, 15, 0);
         dayView.setGravity(Gravity.CENTER_VERTICAL);
         dayView.setCompoundDrawablesWithIntrinsicBounds(0, 0, android.R.drawable.arrow_up_float, 0);
         dayView.setId(id);
@@ -216,16 +216,33 @@ public class HomeActivity extends AppCompatActivity
             public void onClick(View view) {
                 FrameLayout f = (FrameLayout) findViewById(frameLayout);
 
-                if(f.getVisibility() == View.VISIBLE){
+                if (f.getVisibility() == View.VISIBLE) {
                     f.setVisibility(View.GONE);
                     dayView.setCompoundDrawablesWithIntrinsicBounds(0, 0, android.R.drawable.arrow_down_float, 0);
-                }
-                else {
+                } else {
                     f.setVisibility(View.VISIBLE);
                     dayView.setCompoundDrawablesWithIntrinsicBounds(0, 0, android.R.drawable.arrow_up_float, 0);
                 }
             }
         });
         return dayView;
+    }
+
+    private void sendEmail() {
+        Intent i = new Intent(Intent.ACTION_SENDTO);
+        i.setData(Uri.parse("mailto:"+ CUTING_EDGE_EMAIL));
+        startActivity(Intent.createChooser(i, "Send mail with"));
+    }
+
+    private void openGoogleMapsWithLocation() {
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse("https://www.google.com/maps/search/?api=1&query=CUTing+Edge-An+American+Space,+Cyprus+University+of+Technology"));
+        startActivity(intent);
+    }
+
+    private void startWebpageCuting() {
+        Intent i = new Intent(this,WebViewCutingActivity.class);
+        i.putExtra("webpageToShow","http://web.cut.ac.cy/cutingedge/");
+        startActivity(i);
     }
 }

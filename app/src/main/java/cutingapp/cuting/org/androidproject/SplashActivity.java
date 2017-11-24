@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
+import cutingapp.cuting.org.androidproject.lib.helpers.Helper;
 import cutingapp.cuting.org.androidproject.lib.jobs.*;
 
 
@@ -39,19 +40,15 @@ public class SplashActivity extends AppCompatActivity {
     private Context splashContext;
     private GsonBuilder gsonBuilder;
     private Gson gson;
+    Helper helperObj;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         splashContext = this;
-        gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(Job.class, new JobDeserializer());
-        gsonBuilder.registerTypeAdapter(JobType.class, new JobTypeDeserializer());
-        gsonBuilder.registerTypeAdapter(Date.class, new DateDeserializer());
-        gsonBuilder.registerTypeAdapter(Time.class, new TimeDeserializer());
-        gsonBuilder.registerTypeAdapter(Location.class, new LocationDeserializer());
-        gson = gsonBuilder.create();
+        helperObj = new Helper(this,"employees.json", "employers.json", "available_jobs.json");
 
+        helperObj.
         String jsonData = "{\n" +
                 "\t\"applied_jobs\":[\n" +
                 "\t\t{\n" +
@@ -164,58 +161,5 @@ public class SplashActivity extends AppCompatActivity {
 
     }
 
-    private void writeToFile(String filename, String data){
-        FileOutputStream fOut = null;
-        OutputStreamWriter osw = null;
 
-        try{
-
-            fOut = getApplicationContext().openFileOutput(filename,Context.MODE_PRIVATE);
-            osw = new OutputStreamWriter(fOut);
-            osw.write(data);
-            osw.flush();
-
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
-        finally {
-            try {
-                osw.close();
-                fOut.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-    private String readFromFile(String file) {
-
-        String ret = null;
-
-        try {
-            InputStream inputStream = getApplicationContext().openFileInput(file);
-
-            if ( inputStream != null ) {
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String receiveString = "";
-                StringBuilder stringBuilder = new StringBuilder();
-
-                while ( (receiveString = bufferedReader.readLine()) != null ) {
-                    stringBuilder.append(receiveString);
-                }
-
-                inputStream.close();
-                ret = stringBuilder.toString();
-            }
-        }
-        catch (FileNotFoundException e) {
-            Log.e("f","File not found: " + e.toString());
-        } catch (IOException e) {
-            Log.e("f", "Can not read file: " + e.toString());
-        }
-
-        return ret;
-    }
 }

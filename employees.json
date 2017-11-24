@@ -1,0 +1,78 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "haris",
+      "surname": "kozis",
+      "priv": 1,
+      "sid": 2130123,
+      "cid": 12334534,
+      "email": "harisjmd@gmail.com",
+      "gender": "MALE",
+      "skills": [
+        "videography",
+        "photography"
+      ],
+      "password": "patata",
+      "applied_jobs": [
+        {
+          "id": 2,
+          "name": "ΟΙΝΟΥΣΑ ΚΥΠΡΟΣ",
+          "type": "photography",
+          "organization": "CYPRUS UNIVERSITY OF TECHNOLOGY",
+          "person_in_charge": "DIMITRIS TSALTAS",
+          "start_date": "24/11/2017",
+          "end_date": "24/11/2017",
+          "start_time": "17:30",
+          "end_time": "21:00",
+          "location": {
+            "loc_name": "ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1",
+            "lat": 34.6754767,
+            "long": 33.0447799
+          },
+          "desc": "Η βιντεοσκόπηση όλων των ομιλιών είναι επιθυμητή σε αυτόνομα αρχεία έτσι ώστε να γίνουν υλικό προς χρήση τόσο από το ΚΤΙΣΗΣ όσο και από το Εικονικό Μουσείο Κυπριακών Τροφίμων και Διατροφής"
+        },
+        {
+          "id": 3,
+          "name": "Something Event",
+          "type": "photography",
+          "organization": "CYPRUS UNIVERSITY OF TECHNOLOGY",
+          "person_in_charge": "DIMITRIS TSALTAS",
+          "start_date": "26/11/2017",
+          "end_date": "26/11/2017",
+          "start_time": "19:00",
+          "end_time": "21:00",
+          "location": {
+            "loc_name": "Αμφιθέατρο Πεύκιος Γεωργιάδης",
+            "lat": 34.6766777,
+            "long": 33.0423474
+          },
+          "desc": "Φωτογράφηση και βιντεοσκόπηση της εκδήλωσης (χωρίς ζωντανή μετάδοση)"
+        }
+      ],
+	  
+	  "completed_jobs":[
+		{
+			"id":1,
+			"name": "3rd International Conference & Exhibition on Semiotics and Visual Communication.",
+			"type": "photography",
+			"organization": "Cyprus Semiotic Association",
+			"person_in_charge": "Ευριπίδης Ζαντίδης",
+			"start_date": "03/11/2017",
+			"end_date": "03/11/2017",
+			"start_time": "20:30",
+			"end_time": "22:00",
+			"location": {
+				"loc_name": "Tasos Papadopoulos, Amphithatre 1 (001) ground floor",
+				"lat": 54.65465,
+				"long": 54.5466
+			},
+			"desc": "video recording 2 speeches and poster exhibition opening"
+			
+		}
+	]
+	  
+	  
+    }
+  ]
+}

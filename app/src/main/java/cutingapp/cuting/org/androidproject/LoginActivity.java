@@ -3,6 +3,7 @@ package cutingapp.cuting.org.androidproject;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -19,6 +20,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -184,12 +186,64 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+
+
+            //showProgress(true);
+
+            String r = readFromFile("register.txt");
+            Log.println(Log.DEBUG, "SOMETEXT", r);
+           /*  String[] lines = r.split("\\n");
+            String line2 = lines[0];
+            String line3=lines[1];
+            System.out.println(line2);
+            System.out.println(line3);*/
+           /* if((line2==email) && (line3==password)){
+                mAuthTask = new UserLoginTask(email, password);
+                Intent intent=new Intent(this,AuditActivity.class);
+                startActivity(intent);*/
+            /* }
+            else{
+                Toast.makeText(getApplicationContext(), "Wrong Email or Password", Toast.LENGTH_SHORT).show();
+            }*/
+
+
+
         }
     }
 
+    public void sentToRegister(View v){
+        Intent intent = new Intent(this,RegisterActivity.class);
+        startActivity(intent);
+    }
+    private String readFromFile(String file) {
+
+        String ret = null;
+
+        try {
+            InputStream inputStream = getApplicationContext().openFileInput(file);
+
+            if ( inputStream != null ) {
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String receiveString = "";
+                StringBuilder stringBuilder = new StringBuilder();
+
+                while ( (receiveString = bufferedReader.readLine()) != null ) {
+                    stringBuilder.append(receiveString);
+                }
+
+                inputStream.close();
+                ret = stringBuilder.toString();
+            }
+        }
+        catch (FileNotFoundException e) {
+            Log.e("f","File not found: " + e.toString());
+        } catch (IOException e) {
+            Log.e("f", "Can not read file: " + e.toString());
+        }
+
+        return ret;
+    }
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
         return email.contains("@");

@@ -25,6 +25,8 @@
         "end_date": "24/11/2017",
         "start_time": "17:30",
         "end_time": "21:00",
+		"employer_id": "1",
+		"employee_id": "1",
         "location": {
           "loc_name": "ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1",
           "lat": 34.6754767,
@@ -42,6 +44,8 @@
         "end_date": "26/11/2017",
         "start_time": "19:00",
         "end_time": "21:00",
+		"employer_id": "1",
+		"employee_id": "1",
         "location": {
           "loc_name": "Αμφιθέατρο Πεύκιος Γεωργιάδης",
           "lat": 34.6766777,
@@ -61,6 +65,8 @@
         "end_date": "03/11/2017",
         "start_time": "20:30",
         "end_time": "22:00",
+		"employer_id": "1",
+		"employee_id": "1",
         "location": {
           "loc_name": "Tasos Papadopoulos, Amphithatre 1 (001) ground floor",
           "lat": 54.65465,

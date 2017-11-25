@@ -66,6 +66,7 @@ public class HomeActivity extends AppCompatActivity
         if(employee != null && employer == null) {
 
 
+
             LinearLayout layoutUpcoming = (LinearLayout) findViewById(R.id.scroll_linearLayout);
             SimpleDateFormat formatter = new SimpleDateFormat("EEEE - dd/MM", Locale.getDefault());
             int backColor = Color.parseColor("#c11c2b99"); // light grey
@@ -89,20 +90,27 @@ public class HomeActivity extends AppCompatActivity
                 layoutUpcoming.addView(dayname);
                 layoutUpcoming.addView(frameLayoutFragment);
             }
+
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+
+
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                    this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            drawer.setDrawerListener(toggle);
+            toggle.syncState();
+
+            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+            navigationView.setItemIconTintList(null);
+            navigationView.setNavigationItemSelectedListener(this);
+
+            TextView usernameTextview = (TextView) navigationView.getHeaderView(0).findViewById(R.id.user_name);
+            TextView useremailTextview = (TextView) navigationView.getHeaderView(0).findViewById(R.id.user_email);
+            usernameTextview.setText(employee.getName() + " " + employee.getSurname());
+            useremailTextview.setText(employee.getEmail());
         }
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setItemIconTintList(null);
-        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override

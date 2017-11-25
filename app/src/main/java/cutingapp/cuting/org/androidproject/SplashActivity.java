@@ -77,6 +77,8 @@ public class SplashActivity extends AppCompatActivity {
                 "        \"end_date\": \"24/11/2017\",\n" +
                 "        \"start_time\": \"17:30\",\n" +
                 "        \"end_time\": \"21:00\",\n" +
+                "\t\t\"employer_id\": \"1\",\n" +
+                "\t\t\"employee_id\": \"1\",\n" +
                 "        \"location\": {\n" +
                 "          \"loc_name\": \"ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1\",\n" +
                 "          \"lat\": 34.6754767,\n" +
@@ -94,6 +96,8 @@ public class SplashActivity extends AppCompatActivity {
                 "        \"end_date\": \"26/11/2017\",\n" +
                 "        \"start_time\": \"19:00\",\n" +
                 "        \"end_time\": \"21:00\",\n" +
+                "\t\t\"employer_id\": \"1\",\n" +
+                "\t\t\"employee_id\": \"1\",\n" +
                 "        \"location\": {\n" +
                 "          \"loc_name\": \"Αμφιθέατρο Πεύκιος Γεωργιάδης\",\n" +
                 "          \"lat\": 34.6766777,\n" +
@@ -113,6 +117,8 @@ public class SplashActivity extends AppCompatActivity {
                 "        \"end_date\": \"03/11/2017\",\n" +
                 "        \"start_time\": \"20:30\",\n" +
                 "        \"end_time\": \"22:00\",\n" +
+                "\t\t\"employer_id\": \"1\",\n" +
+                "\t\t\"employee_id\": \"1\",\n" +
                 "        \"location\": {\n" +
                 "          \"loc_name\": \"Tasos Papadopoulos, Amphithatre 1 (001) ground floor\",\n" +
                 "          \"lat\": 54.65465,\n" +
@@ -131,23 +137,25 @@ public class SplashActivity extends AppCompatActivity {
 
 
         String available_jobs = "{\n" +
-                "\t\t1:{\n" +
-                "\t\t\t\"id\":1,\n" +
-                "\t\t\t\"name\": \"Training Program: \\\"Mastering Communication\\\"\",\n" +
-                "\t\t\t\"type\": \"videography\",\n" +
-                "\t\t\t\"organization\": \"CUT Υπηρεσία Ανθρώπινου Δυναμικού\",\n" +
-                "\t\t\t\"person_in_charge\": \"konstantia kousoulou\",\n" +
-                "\t\t\t\"start_date\": \"22/11/2017\",\n" +
-                "\t\t\t\"end_date\": \"22/11/2017\",\n" +
-                "\t\t\t\"start_time\": \"9:30\",\n" +
-                "\t\t\t\"end_time\": \"11:30\",\n" +
-                "\t\t\t\"location\": {\n" +
-                "\t\t\t\t\"loc_name\": \"Poseidonia Beach Hotel\",\n" +
-                "\t\t\t\t\"lat\": 54.65465,\n" +
-                "\t\t\t\t\"long\": 54.5466\n" +
-                "\t\t\t},\n" +
-                "\t\t\t\"desc\": \" μονόλεπτης παρουσίασης για κάθε συνάδελφο. Όλες οι παρουσιάσεις θα μεταφερθούν από την sd card σε laptop για να σχολιαστούν από τους συμμετέχοντες\"\n" +
-                "\t\t}\n" +
+                "\t\"1\":{\n" +
+                "\t\t\"id\":1,\n" +
+                "\t\t\"name\": \"Training Program: \\\"Mastering Communication\\\"\",\n" +
+                "\t\t\"type\": \"videography\",\n" +
+                "\t\t\"organization\": \"CUT Υπηρεσία Ανθρώπινου Δυναμικού\",\n" +
+                "\t\t\"person_in_charge\": \"konstantia kousoulou\",\n" +
+                "\t\t\"start_date\": \"22/11/2017\",\n" +
+                "\t\t\"end_date\": \"22/11/2017\",\n" +
+                "\t\t\"start_time\": \"9:30\",\n" +
+                "\t\t\"end_time\": \"11:30\",\n" +
+                "\t\t\"employer_id\": \"1\",\n" +
+                "\t\t\"employee_id\": null,\n" +
+                "\t\t\"location\": {\n" +
+                "\t\t\t\"loc_name\": \"Poseidonia Beach Hotel\",\n" +
+                "\t\t\t\"lat\": 54.65465,\n" +
+                "\t\t\t\"long\": 54.5466\n" +
+                "\t\t},\n" +
+                "\t\t\"desc\": \" μονόλεπτης παρουσίασης για κάθε συνάδελφο. Όλες οι παρουσιάσεις θα μεταφερθούν από την sd card σε laptop για να σχολιαστούν από τους συμμετέχοντες\"\n" +
+                "\t}\n" +
                 "}";
 
         String employers = "{\n" +
@@ -163,8 +171,9 @@ public class SplashActivity extends AppCompatActivity {
                 "    \"organization\": \"asdasd\",\n" +
                 "    \"password\": \"patata\",\n" +
                 "    \"pending_jobs\": {\n" +
+                "    \n" +
                 "      \"2\": {\n" +
-                "        \"id\": 2,\n" +
+                "\t    \"id\": 2,\n" +
                 "        \"name\": \"ΟΙΝΟΥΣΑ ΚΥΠΡΟΣ\",\n" +
                 "        \"type\": \"photography\",\n" +
                 "        \"organization\": \"CYPRUS UNIVERSITY OF TECHNOLOGY\",\n" +
@@ -173,6 +182,8 @@ public class SplashActivity extends AppCompatActivity {
                 "        \"end_date\": \"24/11/2017\",\n" +
                 "        \"start_time\": \"17:30\",\n" +
                 "        \"end_time\": \"21:00\",\n" +
+                "\t\t\"employer_id\": \"1\",\n" +
+                "\t\t\"employee_id\": \"1\",\n" +
                 "        \"location\": {\n" +
                 "          \"loc_name\": \"ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1\",\n" +
                 "          \"lat\": 34.6754767,\n" +
@@ -190,6 +201,8 @@ public class SplashActivity extends AppCompatActivity {
                 "        \"end_date\": \"26/11/2017\",\n" +
                 "        \"start_time\": \"19:00\",\n" +
                 "        \"end_time\": \"21:00\",\n" +
+                "\t\t\"employer_id\": \"1\",\n" +
+                "\t\t\"employee_id\"= \"1\",\n" +
                 "        \"location\": {\n" +
                 "          \"loc_name\": \"Αμφιθέατρο Πεύκιος Γεωργιάδης\",\n" +
                 "          \"lat\": 34.6766777,\n" +
@@ -209,6 +222,8 @@ public class SplashActivity extends AppCompatActivity {
                 "        \"end_date\": \"03/11/2017\",\n" +
                 "        \"start_time\": \"20:30\",\n" +
                 "        \"end_time\": \"22:00\",\n" +
+                "\t\t\"employer_id\": \"1\",\n" +
+                "\t\t\"employee_id\": \"1\",\n" +
                 "        \"location\": {\n" +
                 "          \"loc_name\": \"Tasos Papadopoulos, Amphithatre 1 (001) ground floor\",\n" +
                 "          \"lat\": 54.65465,\n" +

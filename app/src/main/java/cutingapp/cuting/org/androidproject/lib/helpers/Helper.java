@@ -133,7 +133,7 @@ public class Helper implements Serializable{
         gsonBuilder.registerTypeAdapter(Location.class, new LocationDeserializer());
         gsonBuilder.registerTypeAdapter(Employee.class, new EmployeeDeserializer());
         gsonBuilder.registerTypeAdapter(GenderType.class, new GenderTypeDeserializer());
-        Gson gson = gsonBuilder.create();
+        Gson gson = gsonBuilder.serializeNulls().create();
 
         employees = gson.fromJson(readFromFile(context,employeesFile), employeeType);
     }
@@ -150,7 +150,7 @@ public class Helper implements Serializable{
         gsonBuilder.registerTypeAdapter(Location.class, new LocationDeserializer());
         gsonBuilder.registerTypeAdapter(Employer.class, new EmployerDeserializer());
         gsonBuilder.registerTypeAdapter(GenderType.class, new GenderTypeDeserializer());
-        Gson gson = gsonBuilder.create();
+        Gson gson = gsonBuilder.serializeNulls().create();
         employers = gson.fromJson(readFromFile(context,employersFile), employerType);
     }
 
@@ -163,7 +163,7 @@ public class Helper implements Serializable{
         gsonBuilder.registerTypeAdapter(Date.class, new DateDeserializer());
         gsonBuilder.registerTypeAdapter(Time.class, new TimeDeserializer());
         gsonBuilder.registerTypeAdapter(Location.class, new LocationDeserializer());
-        Gson gson = gsonBuilder.create();
+        Gson gson = gsonBuilder.serializeNulls().create();
         availableJobs = gson.fromJson(readFromFile(context,availableJobsFile), availableJobsType);
     }
 
@@ -184,13 +184,13 @@ public class Helper implements Serializable{
 
     public void updateEmployees(Context context) {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        Gson gson = gsonBuilder.create();
+        Gson gson = gsonBuilder.serializeNulls().create();
         writeToFile(context,employeesFile, gson.toJson(employees));
     }
 
     public void updateEmployers(Context context) {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        Gson gson = gsonBuilder.create();
+        Gson gson = gsonBuilder.serializeNulls().create();
         writeToFile(context, employersFile, gson.toJson(employers));
     }
 

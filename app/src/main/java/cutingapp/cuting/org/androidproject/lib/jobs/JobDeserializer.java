@@ -3,6 +3,7 @@ package cutingapp.cuting.org.androidproject.lib.jobs;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 
@@ -37,6 +38,9 @@ public class JobDeserializer implements JsonDeserializer<Job> {
                 startTime,
                 endTime,
                 location,
-                jsonObj.get("desc").getAsString());
+                jsonObj.get("desc").getAsString(),
+                jsonObj.get("employer_id").getAsString(),
+                (jsonObj.get("employee_id") instanceof JsonNull) ? null : jsonObj.get("employee_id").getAsString());
+
     }
 }

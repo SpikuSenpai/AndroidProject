@@ -56,7 +56,15 @@ public class Job implements Serializable {
     @Expose
     private String desc;
 
-    public Job(int id, String name, JobType type, String organization, String person_in_charge, Date startDate, Date endDate, Time startTime, Time endTime, Location location, String desc) {
+    @SerializedName("employer_id")
+    @Expose
+    private String employer_id;
+
+    @SerializedName("employee_id")
+    @Expose
+    private String employee_id;
+
+    public Job(int id, String name, JobType type, String organization, String person_in_charge, Date startDate, Date endDate, Time startTime, Time endTime, Location location, String desc, String employer_id, String employee_id) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -68,6 +76,41 @@ public class Job implements Serializable {
         this.endTime = endTime;
         this.location = location;
         this.desc = desc;
+        this.employer_id = employer_id;
+        this.employee_id = employee_id;
+    }
+
+    public Job() {
+
+        this.id = -1;
+        this.name = null;
+        this.type = null;
+        this.organization = null;
+        this.person_in_charge = null;
+        this.startDate = null;
+        this.endDate = null;
+        this.startTime = null;
+        this.endTime = null;
+        this.location = null;
+        this.desc = null;
+        this.employer_id = null;
+        this.employee_id = null;
+    }
+
+    public String getEmployee_id() {
+        return employee_id;
+    }
+
+    public void setEmployee_id(String employee_id) {
+        this.employee_id = employee_id;
+    }
+
+    public String getEmployer_id() {
+        return employer_id;
+    }
+
+    public void setEmployer_id(String employer_id) {
+        this.employer_id = employer_id;
     }
 
     public int getId() {

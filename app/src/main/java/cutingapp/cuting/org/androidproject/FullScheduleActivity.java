@@ -54,6 +54,7 @@ public class FullScheduleActivity extends AppCompatActivity
         int textColor = Color.parseColor("#ffffff"); //grey
         HashMap<String, Job> applied_jobs = employee.getApplied_jobs();
         String[] days = new String[applied_jobs.size()];
+        Calendar cal = Calendar.getInstance();
 
         for (int i = 0; i < applied_jobs.size(); i++) {
             FrameLayout frameLayoutFragment = new FrameLayout(getApplicationContext());
@@ -77,7 +78,7 @@ public class FullScheduleActivity extends AppCompatActivity
 
 
 
-    private ArrayList<Job> findJobofGivenDay(HashMap<String,Job> jobsToCheck) {
+    private ArrayList<Job> findJobofGivenDay(HashMap<String,Job> jobsToCheck, Date dateToCheck) {
         ArrayList<Job> returnjobs = new ArrayList<Job>();
         SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM", Locale.getDefault());
         int j = 0;

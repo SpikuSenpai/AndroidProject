@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -32,47 +31,48 @@ import java.util.Map;
 import cutingapp.cuting.org.androidproject.lib.helpers.Helper;
 import cutingapp.cuting.org.androidproject.lib.jobs.Job;
 import cutingapp.cuting.org.androidproject.lib.user.Employee;
-import cutingapp.cuting.org.androidproject.lib.user.Employer;
 
-public class FullScheduleActivity extends AppCompatActivity
-        implements UpcomingJobsViewFragment.OnFragmentInteractionListener{
+public class BrowseJobsActivity extends AppCompatActivity implements   AvailableJobsFragment.OnFragmentInteractionListener {
     private Helper helper;
+    private HashMap<String,Job> available_jobs;
     private Employee employee;
-    private final int DAYS_TO_SHOW = 180;
+    private final  int  DAYS_TO_SHOW = 180;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_full_schedule);
-        Bundle data = this.getIntent().getExtras();
+        setContentView(R.layout.activity_browse_jobs);
 
+        Bundle data = this.getIntent().getExtras();
         if (data == null) {
             Toast.makeText(getApplicationContext(),"Unexpected Error Happened",Toast.LENGTH_LONG).show();
             startActivity(new Intent(getApplicationContext(),SplashActivity.class));
         }
         else {
-            helper = (Helper) data.getSerializable("helper");
             employee = (Employee) data.getSerializable("employee");
+            helper = (Helper) data.getSerializable("helper");
+            available_jobs = (HashMap<String,Job>) data.getSerializable("available_jobs");
 
-            // Employee
-            if (employee != null) {
-                LinearLayout layoutUpcoming = (LinearLayout) findViewById(R.id.linearfull_schedule);
+            if (available_jobs != null) {
+                LinearLayout layoutUpcoming = (LinearLayout) findViewById(R.id.browse_jobs);
                 SimpleDateFormat formatter = new SimpleDateFormat("EEEE - dd/MM", Locale.getDefault());
+
                 int backColor = Color.parseColor("#ff7040"); // light grey
                 int textColor = Color.parseColor("#FF000000"); //grey
+
                 Calendar cal = Calendar.getInstance();
                 String[] days = new String[DAYS_TO_SHOW];
-                HashMap<String, Job> applied_jobs = employee.getApplied_jobs();
 
                 for (int i = 0; i < DAYS_TO_SHOW; i++) {
                     days[i] = formatter.format(cal.getTime());
-                    ArrayList<Job> tempJobs = findJobofGivenDay(applied_jobs, cal.getTime());
+                    ArrayList<Job> tempJobs = findJobofGivenDay(available_jobs, cal.getTime());
+
                     if (tempJobs.size() > 0) {
                         FrameLayout frameLayoutFragment = new FrameLayout(getApplicationContext());
                         frameLayoutFragment.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                         frameLayoutFragment.setId(View.generateViewId());
                         FragmentManager fragmentManager = getFragmentManager();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        UpcomingJobsViewFragment toAdd = UpcomingJobsViewFragment.newInstance(tempJobs,null,employee,helper);
+                        AvailableJobsFragment toAdd = AvailableJobsFragment.newInstance(tempJobs,helper, null, employee);
                         fragmentTransaction.add(frameLayoutFragment.getId(), toAdd);
                         fragmentTransaction.commit();
                         TextView dayname = makeDayNameTextView(i, days[i], backColor, textColor, frameLayoutFragment.getId());
@@ -88,11 +88,6 @@ public class FullScheduleActivity extends AppCompatActivity
                 startActivity(new Intent(getApplicationContext(), SplashActivity.class));
             }
         }
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
     }
 
     private ArrayList<Job> findJobofGivenDay(HashMap<String,Job> jobsToCheck, Date dateToCheck) {
@@ -171,14 +166,27 @@ public class FullScheduleActivity extends AppCompatActivity
         });
         return dayView;
     }
+
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Bundle b = new Bundle();
+        Intent i;
         switch (item.getItemId()) {
             case android.R.id.home:
-                onBackPressed(); // to return to home without restarting activity
+                b.putSerializable("employee", employee);
+                b.putSerializable("helper", helper);
+                i = new Intent(getApplicationContext(), HomeActivity.class);
+                i.putExtras(b);
+                startActivity(i);
                 return true;
         }
 
         return (super.onOptionsItemSelected(item));
     }
+
 }

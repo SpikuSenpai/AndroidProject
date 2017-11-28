@@ -1,88 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="cutingapp.cuting.org.androidproject.RegisterActivity">
 
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <EditText
-
-        android:id="@+id/name"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="9"
-        android:inputType="textPersonName"
-        android:hint="First Name"/>
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/surname"
+        <EditText
+
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="17"
+            android:inputType="textPersonName"
+            android:hint="First Name"/>
+
+        <EditText
+            android:id="@+id/surname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="17"
+            android:inputType="textPersonName"
+            android:hint="Last Name" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Gender" />
+        <RadioGroup
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/male"
+                android:text="Male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:text="Female"
+                android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RadioGroup>
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="9"
-        android:inputType="textPersonName"
-        android:hint="Last Name" />
-</LinearLayout>
+        android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="17"
+            android:inputType="number"
+            android:hint="Civil ID" />
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    >
+        <EditText
+            android:id="@+id/sid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="17"
+            android:inputType="number"
+            android:hint="Student ID" />
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/id"
+    <LinearLayout
+        android:layout_marginTop="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="9"
-        android:inputType="number"
-        android:hint="Civil ID" />
-
-    <EditText
-        android:id="@+id/sid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="9"
-        android:inputType="number"
-        android:hint="Student ID" />
-</LinearLayout>
-
-<LinearLayout
-    android:layout_marginTop="15dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+        android:orientation="vertical">
 
 
-    <EditText
-        android:id="@+id/phone_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="15"
-        android:inputType="phone"
-        android:hint="Phone Number" />
+        <EditText
+            android:id="@+id/phone_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="17"
+            android:inputType="phone"
+            android:hint="Phone Number" />
 
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="15"
-        android:inputType="textEmailAddress"
-        android:hint="Email" />
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="17"
+            android:inputType="textEmailAddress"
+            android:hint="Email" />
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="15"
-        android:hint="Password"
-        android:inputType="textPassword" />
-</LinearLayout>
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="17"
+            android:hint="Password"
+            android:inputType="textPassword" />
+    </LinearLayout>
 
 
     <TextView
@@ -124,7 +151,10 @@
         android:layout_marginEnd="15dp"
         android:layout_marginStart="15dp"
         android:text="SIGN UP"
-        android:background="@drawable/button_view_on_map"
-        android:onClick="signUp" />
+        android:onClick="signUp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_view_on_map"/>
 
 </LinearLayout>
+
+</ScrollView>

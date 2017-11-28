@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private UserLoginTask mAuthTask = null;
     private Helper helper;
 
-    // UI references.
+    // UI references
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
     private View mProgressView;
@@ -243,8 +243,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 startActivity(i);
             }
 
-            Toast.makeText(getApplicationContext(),"Email or Password not found",Toast.LENGTH_LONG).show();
-
+            if(employee == null && employer == null) {
+                Toast.makeText(getApplicationContext(), "Email or Password not found", Toast.LENGTH_LONG).show();
+            }
 
         }
     }

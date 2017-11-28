@@ -22,7 +22,7 @@ public class JobDeserializer implements JsonDeserializer<Job> {
 
         JobType type = context.deserialize(jsonObj.get("type"), JobType.class);
         Date startDate = context.deserialize(jsonObj.get("start_date"), Date.class);
-        Date endDate= context.deserialize(jsonObj.get("end_date"), Date.class);
+        Date endDate = context.deserialize(jsonObj.get("end_date"), Date.class);
         Time startTime = context.deserialize(jsonObj.get("start_time"), Time.class);
         Time endTime = context.deserialize(jsonObj.get("end_time"), Time.class);
         Location location = context.deserialize(jsonObj.get("location"), Location.class);
@@ -40,7 +40,8 @@ public class JobDeserializer implements JsonDeserializer<Job> {
                 location,
                 jsonObj.get("desc").getAsString(),
                 jsonObj.get("employer_id").getAsString(),
-                (jsonObj.get("employee_id") instanceof JsonNull) ? null : jsonObj.get("employee_id").getAsString());
+                (jsonObj.get("employee_id") instanceof JsonNull) ? null : jsonObj.get("employee_id").getAsString(),
+                (jsonObj.get("rating") instanceof JsonNull) ? -1 : jsonObj.get("rating").getAsInt());
 
     }
 }

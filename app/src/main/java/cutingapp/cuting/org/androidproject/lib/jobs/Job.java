@@ -64,7 +64,11 @@ public class Job implements Serializable {
     @Expose
     private String employee_id;
 
-    public Job(int id, String name, JobType type, String organization, String person_in_charge, Date startDate, Date endDate, Time startTime, Time endTime, Location location, String desc, String employer_id, String employee_id) {
+    @SerializedName("rating")
+    @Expose
+    private int rating;
+
+    public Job(int id, String name, JobType type, String organization, String person_in_charge, Date startDate, Date endDate, Time startTime, Time endTime, Location location, String desc, String employer_id, String employee_id, int rating) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -78,6 +82,7 @@ public class Job implements Serializable {
         this.desc = desc;
         this.employer_id = employer_id;
         this.employee_id = employee_id;
+        this.rating = rating;
     }
 
     public Job() {
@@ -95,6 +100,15 @@ public class Job implements Serializable {
         this.desc = null;
         this.employer_id = null;
         this.employee_id = null;
+        this.rating = -1;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public String getEmployee_id() {

@@ -16,11 +16,19 @@
                 android:icon="@android:drawable/ic_menu_today"
                 android:title="Full Schedule" />
             <item
+                android:id="@+id/nav_create_job"
+                android:icon="@drawable/add"
+                android:title="Create new Job" />
+            <item
                 android:id="@+id/nav_browse_jobs"
                 android:icon="@android:drawable/ic_search_category_default"
                 android:title="Browse Jobs" />
             <item
-                android:id="@+id/nav_comp_jobs"
+                android:id="@+id/nav_comp_jobs_e"
+                android:icon="@drawable/comp_job"
+                android:title="Completed Jobs" />
+            <item
+                android:id="@+id/nav_comp_jobs_r"
                 android:icon="@drawable/comp_job"
                 android:title="Completed Jobs" />
         </menu>
@@ -39,7 +47,19 @@
             <item
                 android:id="@+id/nav_cuting_location"
                 android:icon="@drawable/pin_place"
-                android:title="Location" />
+                android:title="Location"
+                />
+        </menu>
+    </item>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/logout"
+                android:title="Logout"
+                />
+
         </menu>
     </item>
 

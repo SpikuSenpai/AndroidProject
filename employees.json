@@ -1,80 +1,126 @@
-{
-  "1": {
-    "id": 1,
-    "name": "haris",
-    "surname": "kozis",
-    "priv": 1,
-    "sid": 2130123,
-    "cid": 12334534,
-    "email": "harisjmd@gmail.com",
-    "phone_number": "99999999",
-    "gender": "MALE",
-    "skills": [
-      "videography",
-      "photography"
-    ],
-    "password": "patata",
-    "applied_jobs": {
-      "2": {
-        "id": 2,
-        "name": "ΟΙΝΟΥΣΑ ΚΥΠΡΟΣ",
-        "type": "photography",
-        "organization": "CYPRUS UNIVERSITY OF TECHNOLOGY",
-        "person_in_charge": "DIMITRIS TSALTAS",
-        "start_date": "24/11/2017",
-        "end_date": "24/11/2017",
-        "start_time": "17:30",
-        "end_time": "21:00",
+﻿{
+	"1": {
+		"id": 1,
+		"name": "haris",
+		"surname": "kozis",
+		"priv": 0,
+		"sid": 2130123,
+		"cid": 12334534,
+		"email": "employee@gmail.com",
+		"phone_number": "99999999",
+		"gender": "MALE",
+		"skills": [
+			"videography",
+			"photography"
+		],
+		"password": "123456789",
+		"applied_jobs": {
+			"100": {
+				"id": 100,
+				"name": "ΠΑΡΟΥΣΙΑΣΗ ΒΙΒΛΙΟΥ",
+				"type": "videography",
+				"organization": "CYPRUS UNIVERSITY OF TECHNOLOGY",
+				"person_in_charge": "ALEX PAPAKOSTAS",
+				"start_date": "28/11/2017",
+				"end_date": "28/11/2017",
+				"start_time": "20:00",
+				"end_time": "21:00",
+				"employer_id": "1",
+				"rating": null,
+				"employee_id": "1",
+				"location": {
+					"loc_name": "ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1",
+					"lat": 34.6754767,
+					"long": 33.0447799
+				},
+				"desc": "Η βιντεοσκόπηση όλων των ομιλιών είναι επιθυμητή σε αυτόνομα αρχεία έτσι ώστε να γίνουν υλικό προς χρήση τόσο από το ΚΤΙΣΗΣ όσο και από το Εικονικό Μουσείο Κυπριακών Τροφίμων και Διατροφής"
+			},
+			"101": {
+				"id": 101,
+				"name": "ΦΩΤΟΓΡΑΦΗΣΗ ΠΡΟΣΩΠΙΚΟΥ",
+				"type": "photography",
+				"organization": "CYPRUS UNIVERSITY OF TECHNOLOGY",
+				"person_in_charge": "KOSTAS GEORGIOY",
+				"start_date": "29/11/2017",
+				"end_date": "29/11/2017",
+				"start_time": "10:00",
+				"end_time": "16:00",
+				"employer_id": "1",
+				"employee_id": "1",
+				"rating": null,
+				"location": {
+					"loc_name": "Αμφιθέατρο Πεύκιος Γεωργιάδης",
+					"lat": 34.6766777,
+					"long": 33.0423474
+				},
+				"desc": "Φωτογράφηση Προσωπικού Τεχνολογικού Πανεπιστημίου Κύπρου"
+			},
+			"102": {
+				"id": 102,
+				"name": "ΟΜΙΛΙΑ ΓΙΑ ΕΠΑΓΓΕΛΑΜΤΙΚΗ ΑΠΟΚΑΤΑΣΤΑΣΗ",
+				"type": "videography",
+				"organization": "CYPRUS UNIVERSITY OF TECHNOLOGY",
+				"person_in_charge": "ANTREOU ANTREAS",
+				"start_date": "30/11/2017",
+				"end_date": "30/11/2017",
+				"start_time": "17:30",
+				"end_time": "19:30",
+				"employer_id": "1",
+				"employee_id": "1",
+				"rating": null,
+				"location": {
+					"loc_name": "ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1",
+					"lat": 34.6754767,
+					"long": 33.0447799
+				},
+				"desc": "Η βιντεοσκόπηση όλων των ομιλιών είναι επιθυμητή σε αυτόνομα αρχεία έτσι ώστε να γίνουν υλικό προς χρήση τόσο από το ΚΤΙΣΗΣ όσο και από το Εικονικό Μουσείο Κυπριακών Τροφίμων και Διατροφής"
+			}
+		},
+		"completed_jobs": {
+			"201": {
+				"id": 201,
+				"name": "3rd International Conference & Exhibition on Semiotics and Visual Communication.",
+				"type": "photography",
+				"organization": "Cyprus Semiotic Association",
+				"person_in_charge": "Ευριπίδης Ζαντίδης",
+				"start_date": "03/11/2017",
+				"end_date": "03/11/2017",
+				"start_time": "20:30",
+				"end_time": "22:00",
+				"employer_id": "1",
+				"employee_id": "1",
+				"rating": 6,
+				"location": {
+					"loc_name": "Tasos Papadopoulos, Amphithatre 1 (001) ground floor",
+					"lat": 54.65465,
+					"long": 54.5466
+				},
+				"desc": "video recording 2 speeches and poster exhibition opening"
+			},
+			"202": {
+		"id": 201,
+		"name": "ΠΑΡΟΥΣΙΑΣΗ ΠΤΥΧΙΑΚΩΝ ΕΡΓΑΣΙΩΝ",
+		"type": "photography",
+		"organization": "CYPRUS UNIVERSITY OF TECHNOLOGY",
+		"person_in_charge": "ΙΩΑΝΝΗΣ ΙΩΑΝΝΟΥ",
+		"start_date": "15/11/2017",
+		"end_date": "15/11/2017",
+		"start_time": "10:30",
+		"end_time": "14:00",
 		"employer_id": "1",
 		"employee_id": "1",
-        "location": {
-          "loc_name": "ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1",
-          "lat": 34.6754767,
-          "long": 33.0447799
-        },
-        "desc": "Η βιντεοσκόπηση όλων των ομιλιών είναι επιθυμητή σε αυτόνομα αρχεία έτσι ώστε να γίνουν υλικό προς χρήση τόσο από το ΚΤΙΣΗΣ όσο και από το Εικονικό Μουσείο Κυπριακών Τροφίμων και Διατροφής"
-      },
-      "3": {
-        "id": 3,
-        "name": "Something Event",
-        "type": "photography",
-        "organization": "CYPRUS UNIVERSITY OF TECHNOLOGY",
-        "person_in_charge": "DIMITRIS TSALTAS",
-        "start_date": "26/11/2017",
-        "end_date": "26/11/2017",
-        "start_time": "19:00",
-        "end_time": "21:00",
-		"employer_id": "1",
-		"employee_id": "1",
-        "location": {
-          "loc_name": "Αμφιθέατρο Πεύκιος Γεωργιάδης",
-          "lat": 34.6766777,
-          "long": 33.0423474
-        },
-        "desc": "Φωτογράφηση και βιντεοσκόπηση της εκδήλωσης (χωρίς ζωντανή μετάδοση)"
-      }
-    },
-    "completed_jobs": {
-      "1": {
-        "id": 1,
-        "name": "3rd International Conference & Exhibition on Semiotics and Visual Communication.",
-        "type": "photography",
-        "organization": "Cyprus Semiotic Association",
-        "person_in_charge": "Ευριπίδης Ζαντίδης",
-        "start_date": "03/11/2017",
-        "end_date": "03/11/2017",
-        "start_time": "20:30",
-        "end_time": "22:00",
-		"employer_id": "1",
-		"employee_id": "1",
-        "location": {
-          "loc_name": "Tasos Papadopoulos, Amphithatre 1 (001) ground floor",
-          "lat": 54.65465,
-          "long": 54.5466
-        },
-        "desc": "video recording 2 speeches and poster exhibition opening"
-      }
-    }
-  }
+		"rating": 6,
+		"location": {
+			"loc_name": "Tasos Papadopoulos, Amphithatre 1 (001) ground floor",
+			"lat": 54.65465,
+			"long": 54.5466
+		},
+		"desc": "video recording 2 speeches and poster exhibition opening"
+	}
+			
+		}
+	}
+	
+
 
 }

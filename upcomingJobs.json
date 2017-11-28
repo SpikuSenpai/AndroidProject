@@ -1,21 +1,107 @@
-{
-	"1":{
-		"id":1,
-		"name": "Training Program: \"Mastering Communication\"",
-		"type": "videography",
-		"organization": "CUT Υπηρεσία Ανθρώπινου Δυναμικού",
-		"person_in_charge": "konstantia kousoulou",
-		"start_date": "22/11/2017",
-		"end_date": "22/11/2017",
-		"start_time": "9:30",
-		"end_time": "11:30",
+﻿{
+	"2": {
+		"id": 2,
+		"name": "ΟΙΝΟΥΣΑ ΚΥΠΡΟΣ",
+		"type": "photography",
+		"organization": "CYPRUS UNIVERSITY OF TECHNOLOGY",
+		"person_in_charge": "DIMITRIS TSALTAS",
+		"start_date": "27/11/2017",
+		"end_date": "27/11/2017",
+		"start_time": "17:30",
+		"end_time": "21:00",
 		"employer_id": "1",
 		"employee_id": null,
 		"location": {
-			"loc_name": "Poseidonia Beach Hotel",
-			"lat": 54.65465,
-			"long": 54.5466
+			"loc_name": "ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1",
+			"lat": 34.6754767,
+			"long": 33.0447799
 		},
-		"desc": " μονόλεπτης παρουσίασης για κάθε συνάδελφο. Όλες οι παρουσιάσεις θα μεταφερθούν από την sd card σε laptop για να σχολιαστούν από τους συμμετέχοντες"
+		"desc": "Η βιντεοσκόπηση όλων των ομιλιών είναι επιθυμητή σε αυτόνομα αρχεία έτσι ώστε να γίνουν υλικό προς χρήση τόσο από το ΚΤΙΣΗΣ όσο και από το Εικονικό Μουσείο Κυπριακών Τροφίμων και Διατροφής",
+		"rating": null
+	},
+
+	"3": {
+		"id": 3,
+		"name": "ΓΑΛΑΤΑ",
+		"type": "photography",
+		"organization": "CYPRUS UNIVERSITY OF TECHNOLOGY",
+		"person_in_charge": "HAYIANNIS CHRISTODOULOS",
+		"start_date": "28/11/2017",
+		"end_date": "28/11/2017",
+		"start_time": "9:00",
+		"end_time": "12:00",
+		"employer_id": "1",
+		"employee_id": null,
+		"location": {
+			"loc_name": "ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1",
+			"lat": 34.6754767,
+			"long": 33.0447799
+		},
+		"desc": "Η βιντεοσκόπηση όλων των ομιλιών είναι επιθυμητή σε αυτόνομα αρχεία έτσι ώστε να γίνουν υλικό προς χρήση τόσο από το ΚΤΙΣΗΣ όσο και από το Εικονικό Μουσείο Κυπριακών Τροφίμων και Διατροφής",
+		"rating": null
+	},
+
+
+	"4": {
+		"id": 4,
+		"name": "HACKATHON",
+		"type": "photography",
+		"organization": "CYPRUS UNIVERSITY OF TECHNOLOGY",
+		"person_in_charge": "KOZIS CHARALAMPOS",
+		"start_date": "29/11/2017",
+		"end_date": "29/11/2017",
+		"start_time": "18:30",
+		"end_time": "20:00",
+		"employer_id": "1",
+		"employee_id": null,
+		"location": {
+			"loc_name": "ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1",
+			"lat": 34.6754767,
+			"long": 33.0447799
+		},
+		"desc": "Η βιντεοσκόπηση όλων των ομιλιών είναι επιθυμητή σε αυτόνομα αρχεία έτσι ώστε να γίνουν υλικό προς χρήση τόσο από το ΚΤΙΣΗΣ όσο και από το Εικονικό Μουσείο Κυπριακών Τροφίμων και Διατροφής",
+		"rating": null
+	},
+	"5": {
+		"id": 5,
+		"name": "CYRIX",
+		"type": "photography",
+		"organization": "CYPRUS UNIVERSITY OF TECHNOLOGY",
+		"person_in_charge": "KYRIAKOY CHARALAMPOS",
+		"start_date": "30/11/2017",
+		"end_date": "30/11/2017",
+		"start_time": "11:30",
+		"end_time": "14:00",
+		"employer_id": "1",
+		"employee_id": null,
+		"location": {
+			"loc_name": "ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1",
+			"lat": 34.6754767,
+			"long": 33.0447799
+		},
+		"desc": "Η βιντεοσκόπηση όλων των ομιλιών είναι επιθυμητή σε αυτόνομα αρχεία έτσι ώστε να γίνουν υλικό προς χρήση τόσο από το ΚΤΙΣΗΣ όσο και από το Εικονικό Μουσείο Κυπριακών Τροφίμων και Διατροφής",
+		"rating": null
+	},
+
+	"6": {
+		"id": 6,
+		"name": "SPACE UPS",
+		"type": "photography",
+		"organization": "CYPRUS UNIVERSITY OF TECHNOLOGY",
+		"person_in_charge": "ARISTOTELOUS ELENA",
+		"start_date": "01/12/2017",
+		"end_date": "01/12/2017",
+		"start_time": "13:30",
+		"end_time": "15:30",
+		"employer_id": "1",
+		"employee_id": null,
+		"location": {
+			"loc_name": "ΤΑΣΟΣ ΠΑΠΑΔΟΠΟΥΛΟΣ ΑΜΦ1",
+			"lat": 34.6754767,
+			"long": 33.0447799
+		},
+		"desc": "Η βιντεοσκόπηση όλων των ομιλιών είναι επιθυμητή σε αυτόνομα αρχεία έτσι ώστε να γίνουν υλικό προς χρήση τόσο από το ΚΤΙΣΗΣ όσο και από το Εικονικό Μουσείο Κυπριακών Τροφίμων και Διατροφής",
+		"rating": null
 	}
+
 }

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="cutingapp.cuting.org.androidproject.HomeActivity"
+    tools:context="cutingapp.cuting.org.androidproject.CompletedJobsActivity"
     tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="81dp"
-    tools:showIn="@layout/app_bar_home"
-    android:orientation="vertical">
+    tools:layout_editor_absoluteY="81dp">
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+
         >
 
         <LinearLayout
-            android:id="@+id/scroll_linearLayout"
+            android:id="@+id/completed_jobs_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -27,4 +27,4 @@
         </LinearLayout>
 
     </ScrollView>
-</LinearLayout>
+</RelativeLayout>

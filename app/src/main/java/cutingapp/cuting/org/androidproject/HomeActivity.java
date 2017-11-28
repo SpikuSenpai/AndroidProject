@@ -9,6 +9,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -25,8 +26,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.sql.Time;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -57,39 +59,15 @@ public class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Bundle data = this.getIntent().getExtras();
 
-        if (data != null) {
-            helper =(Helper)data.getSerializable("helper");
+        if (data == null) {
+            Toast.makeText(getApplicationContext(),"Unexpected Error Happened",Toast.LENGTH_LONG).show();
+            startActivity(new Intent(getApplicationContext(),SplashActivity.class));
+        }
+        else {
+            helper = (Helper) data.getSerializable("helper");
             employee = (Employee) data.getSerializable("employee");
             employer = (Employer) data.getSerializable("employer");
-        }
-        // Employee
-        if(employee != null && employer == null) {
 
-
-
-            LinearLayout layoutUpcoming = (LinearLayout) findViewById(R.id.scroll_linearLayout);
-            SimpleDateFormat formatter = new SimpleDateFormat("EEEE - dd/MM", Locale.getDefault());
-            int backColor = Color.parseColor("#c11c2b99"); // light grey
-            int textColor = Color.parseColor("#ffffff"); //grey
-            Calendar cal = Calendar.getInstance();
-            String[] days = new String[DAYS_TO_SHOW];
-            HashMap<String,Job> applied_jobs = employee.getApplied_jobs();
-
-            for (int i = 0; i < DAYS_TO_SHOW; i++) {
-                days[i] = formatter.format(cal.getTime());
-                FrameLayout frameLayoutFragment = new FrameLayout(getApplicationContext());
-                frameLayoutFragment.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                frameLayoutFragment.setId(i + 10);
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                UpcomingJobsViewFragment toAdd = UpcomingJobsViewFragment.newInstance(findJobofGivenDay(applied_jobs, cal.getTime()));
-                fragmentTransaction.add(frameLayoutFragment.getId(), toAdd);
-                fragmentTransaction.commit();
-                TextView dayname = makeDayNameTextView(i, days[i], backColor, textColor, frameLayoutFragment.getId());
-                cal.add(Calendar.DAY_OF_MONTH, 1);
-                layoutUpcoming.addView(dayname);
-                layoutUpcoming.addView(frameLayoutFragment);
-            }
 
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
@@ -105,10 +83,108 @@ public class HomeActivity extends AppCompatActivity
             navigationView.setItemIconTintList(null);
             navigationView.setNavigationItemSelectedListener(this);
 
-            TextView usernameTextview = (TextView) navigationView.getHeaderView(0).findViewById(R.id.user_name);
-            TextView useremailTextview = (TextView) navigationView.getHeaderView(0).findViewById(R.id.user_email);
-            usernameTextview.setText(employee.getName() + " " + employee.getSurname());
-            useremailTextview.setText(employee.getEmail());
+            // Employee
+            if (employee != null && employer == null) {
+
+                FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+                fab.setVisibility(View.GONE);
+
+                LinearLayout layoutUpcoming = (LinearLayout) findViewById(R.id.scroll_linearLayout);
+                SimpleDateFormat formatter = new SimpleDateFormat("EEEE - dd/MM", Locale.getDefault());
+                int backColor = Color.parseColor("#ff7040"); // light grey
+                int textColor = Color.parseColor("#FF000000"); //grey
+                Calendar cal = Calendar.getInstance();
+                String[] days = new String[DAYS_TO_SHOW];
+                HashMap<String, Job> applied_jobs = employee.getApplied_jobs();
+
+                for (int i = 0; i < DAYS_TO_SHOW; i++) {
+                    days[i] = formatter.format(cal.getTime());
+                    FrameLayout frameLayoutFragment = new FrameLayout(getApplicationContext());
+                    frameLayoutFragment.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    frameLayoutFragment.setId(View.generateViewId());
+                    FragmentManager fragmentManager = getFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    ArrayList<Job> tempJobs = findJobofGivenDay(applied_jobs, cal.getTime());
+                    if(tempJobs.size() > 0){
+                        UpcomingJobsViewFragment toAdd = UpcomingJobsViewFragment.newInstance(tempJobs,null,employee,helper);
+                        fragmentTransaction.add(frameLayoutFragment.getId(), toAdd);
+                        fragmentTransaction.commit();
+                        TextView dayname = makeDayNameTextView(i, days[i], backColor, textColor, frameLayoutFragment.getId());
+
+                        layoutUpcoming.addView(dayname);
+                        layoutUpcoming.addView(frameLayoutFragment);
+                    }
+                    cal.add(Calendar.DAY_OF_MONTH, 1);
+
+
+                }
+
+                ((MenuItem) navigationView.getMenu().findItem(R.id.nav_comp_jobs_r)).setVisible(false);
+                ((MenuItem) navigationView.getMenu().findItem(R.id.nav_create_job)).setVisible(false);
+                TextView usernameTextview = (TextView) navigationView.getHeaderView(0).findViewById(R.id.user_name);
+                TextView useremailTextview = (TextView) navigationView.getHeaderView(0).findViewById(R.id.user_email);
+                usernameTextview.setText(employee.getName() + " " + employee.getSurname());
+                useremailTextview.setText(employee.getEmail());
+            }
+            //Employer
+            else if (employer != null && employee == null) {
+
+                final Bundle bund = new Bundle();
+                final Intent intent = new Intent(getApplicationContext(),CreateJobActivity.class);
+                FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+                fab.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        bund.putSerializable("helper", helper);
+                        bund.putSerializable("employer",employer);
+                        intent.putExtras(bund);
+                        startActivity(intent);
+                    }
+                });
+                LinearLayout layoutUpcoming = (LinearLayout) findViewById(R.id.scroll_linearLayout);
+                SimpleDateFormat formatter = new SimpleDateFormat("EEEE - dd/MM", Locale.getDefault());
+                int backColor = Color.parseColor("#ff7040"); // light grey
+                int textColor = Color.parseColor("#FF000000"); //grey
+                Calendar cal = Calendar.getInstance();
+                String[] days = new String[DAYS_TO_SHOW];
+                HashMap<String, Job> pending_jobs = employer.getPending_jobs();
+
+                for (int i = 0; i < DAYS_TO_SHOW; i++) {
+                    days[i] = formatter.format(cal.getTime());
+                    FrameLayout frameLayoutFragment = new FrameLayout(getApplicationContext());
+                    frameLayoutFragment.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    frameLayoutFragment.setId(i + 10);
+                    FragmentManager fragmentManager = getFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    ArrayList<Job> tempJobs = findJobofGivenDay(pending_jobs, cal.getTime());
+                    if(tempJobs.size() > 0){
+                        UpcomingJobsViewFragment toAdd = UpcomingJobsViewFragment.newInstance(tempJobs,employer,null,helper);
+                        fragmentTransaction.add(frameLayoutFragment.getId(), toAdd);
+                        fragmentTransaction.commit();
+                        TextView dayname = makeDayNameTextView(i, days[i], backColor, textColor, frameLayoutFragment.getId());
+
+                        layoutUpcoming.addView(dayname);
+                        layoutUpcoming.addView(frameLayoutFragment);
+                    }
+                    cal.add(Calendar.DAY_OF_MONTH, 1);
+
+
+                }
+
+                TextView usernameTextview = (TextView) navigationView.getHeaderView(0).findViewById(R.id.user_name);
+                TextView useremailTextview = (TextView) navigationView.getHeaderView(0).findViewById(R.id.user_email);
+                ((MenuItem) navigationView.getMenu().findItem(R.id.nav_full_schedule)).setVisible(false);
+                ((MenuItem) navigationView.getMenu().findItem(R.id.nav_browse_jobs)).setVisible(false);
+                ((MenuItem) navigationView.getMenu().findItem(R.id.nav_comp_jobs_e)).setVisible(false);
+
+                usernameTextview.setText(employer.getName() + " " + employer.getSurname());
+                useremailTextview.setText(employer.getEmail());
+            }
+            // null both
+            else {
+                Toast.makeText(getApplicationContext(), "Unexpected Error Happened", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(), SplashActivity.class));
+            }
         }
 
     }
@@ -119,7 +195,7 @@ public class HomeActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+//            super.onBackPressed();
         }
     }
 
@@ -148,7 +224,8 @@ public class HomeActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        Bundle b = new Bundle();
+        Intent i;
         if (id == R.id.nav_cuting_email) {
             sendEmail();
         } else if (id == R.id.nav_cuting_location) {
@@ -162,6 +239,51 @@ public class HomeActivity extends AppCompatActivity
             applied_jobs.putSerializable("employee",employee);
             intent.putExtras(applied_jobs);
             startActivity(intent);
+        }
+        else if(id == R.id.nav_browse_jobs){
+            b.putSerializable("helper", helper);
+            b.putSerializable("available_jobs",helper.getAvailableJobs());
+            b.putSerializable("employee", employee);
+            i = new Intent(getApplicationContext(), BrowseJobsActivity.class);
+            i.putExtras(b);
+            startActivity(i);
+        }
+        else if(id == R.id.nav_comp_jobs_e){
+            b.putSerializable("helper", helper);
+            b.putSerializable("employee",employee);
+            b.putSerializable("completed_jobs", employee.getCompleted_jobs());
+            i = new Intent(getApplicationContext(),CompletedJobsActivity.class);
+            i.putExtras(b);
+            startActivity(i);
+        }
+        else if(id == R.id.nav_comp_jobs_r){
+            b.putSerializable("helper", helper);
+            b.putSerializable("employer",employer);
+            b.putSerializable("completed_jobs", employer.getCompleted_jobs());
+            i = new Intent(getApplicationContext(),CompletedJobsActivity.class);
+            i.putExtras(b);
+            startActivity(i);
+
+        }
+        else if(id == R.id.nav_create_job){
+            //TODO Create Job Employer
+            b.putSerializable("helper", helper);
+            b.putSerializable("employer",employer);
+            i = new Intent(getApplicationContext(),CreateJobActivity.class);
+            i.putExtras(b);
+            startActivity(i);
+        }
+        else if(id == R.id.nav_logout){
+            // Logout
+            startActivity( new Intent(getApplicationContext(),SplashActivity.class));
+        }
+        else if(id == R.id.nav_edit_prof){
+            b.putSerializable("helper", helper);
+            b.putSerializable("employer",employer);
+            b.putSerializable("employee",employee);
+            i = new Intent(getApplicationContext(),EditProfileActivity.class);
+            i.putExtras(b);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
